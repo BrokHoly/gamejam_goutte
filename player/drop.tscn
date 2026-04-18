@@ -26,3 +26,14 @@ position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879730674]
 shape = SubResource("CircleShape2D_4atf0")
+
+[node name="Splash" type="CPUParticles2D" parent="." unique_id=382399921]
+position = Vector2(0, -1)
+emitting = false
+texture = ExtResource("2_4atf0")
+one_shot = true
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 29.7
+initial_velocity_max = 89.11

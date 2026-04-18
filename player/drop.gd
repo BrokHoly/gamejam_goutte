@@ -16,13 +16,32 @@ var sprite : Sprite2D
 func _ready() -> void:
 	sprite = $Sprite2D
 	sprite.texture = LIQUID_SKIN
-
+	GameManager.health_changed.connect(take_damage)
 
 
 
 func _physics_process(delta: float) -> void:
 	_handle_movements()
 	_handle_inputs()
+
+func take_damage(amount : int):
+	if(is_inside_tree()):
+		var tweenRed = get_tree().create_tween()
+		var tweenScale = get_tree().create_tween()
+
+		var initial_color: Color = sprite.modulate;
+		var initial_scale: Vector2 = scale
+		
+		$Splash.emitting = true
+		tweenRed.tween_property(sprite, "modulate", Color.RED, 0.25)
+		tweenScale.tween_property(sprite, "scale", Vector2(1.25,1.25), 0.25)
+
+		tweenScale.tween_property(sprite, "scale", initial_scale, 0.25)
+		tweenRed.tween_property(sprite,"modulate",initial_color,0.25)
+	
+
+
+
 
 
 func _handle_movements():

@@ -4,9 +4,7 @@ var spawner : Node2D
 var left_anchor : Marker2D 
 var right_anchor : Marker2D 
 
-#score is stored here because it should start counting once the level is instancied
-# so you can't put it inside GameManager which load at the start of the game and not the level
-@onready var score : int= 0
+
 
 
 var OBSTACLES_SPEED: float = 70.0
@@ -28,7 +26,6 @@ func _ready() -> void:
 	left_anchor = $ObstacleSpawner/LeftAnchor
 	right_anchor = $ObstacleSpawner/RightAnchor
 	
-	GameManager.health_depleted.connect(save_score)
 	
 	RIGHT_OBSTACLES_SCENES = [
 		load("res://props/leftleaf.tscn").instantiate()
@@ -37,20 +34,13 @@ func _ready() -> void:
 		load("res://props/leftleaf.tscn").instantiate()
 	]
 	# Instanciate Obstacles
+	GameManager.start_score = true
+	
 	pass # Replace with function body.
 
 
-func _physics_process(delta: float) -> void:
-	score += 1
-	$CurrentScore.text = str(score)
 
 
-
-func save_score()->void:
-	if(GameManager.load_highest_score() < score):
-		GameManager.save_highest_score(score)
-
-	get_tree().change_scene_to_file("res://menu/menu.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
 	

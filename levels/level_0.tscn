@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="1_eus5j"]
 [ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="3_iss0w"]
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="4_yi3jx"]
+[ext_resource type="Script" uid="uid://q08yasbnha2s" path="res://levels/update_score.gd" id="5_7d3si"]
 [ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="5_foxie"]
 
 [node name="Level0" type="Node2D" unique_id=1454019866]
@@ -44,5 +45,6 @@ offset_bottom = 18.0
 scale = Vector2(0.535, 0.535)
 theme = ExtResource("4_yi3jx")
 text = "10"
+script = ExtResource("5_7d3si")
 
 [node name="TextureRect" parent="." unique_id=204977200 instance=ExtResource("5_foxie")]

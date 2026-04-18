@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.is_ice() and is_in_group("breakable"):
-			# Add bonus point to Score
+			
 			pass
 		if body.is_liquid() and is_in_group("travesable"):
 			# Add bonus point to Score
