@@ -4,8 +4,20 @@ extends CharacterBody2D
 const SIDE_SPEED = 70.0
 const DOWN_SPEED = 20.0
 
+enum STATES {LIQUID, ICE, SNOW}
+
+var LIQUID_SKIN = load("res://Assets/Sprites/MainCharacter/Goutte.png")
+var ICE_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
+var SNOW_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
+
+
+var state = STATES.LIQUID
+var sprite : Sprite2D
+
 func _ready() -> void:
-	pass
+	sprite = $Sprite2D
+	sprite.texture = LIQUID_SKIN
+
 
 func _physics_process(delta: float) -> void:
 	_handle_movements()
@@ -30,6 +42,24 @@ func _handle_movements():
 
 func _handle_inputs():
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		pass
-	pass
+	if Input.is_action_just_pressed("toggle_ice"):
+		_toggle_ice()
+	if Input.is_action_just_pressed("toggle_snow"):
+		_toggle_snow()
+
+
+func _toggle_ice():
+	if state == STATES.ICE:
+		state = STATES.LIQUID
+		sprite.texture = LIQUID_SKIN
+	else:
+		state = STATES.ICE
+		sprite.texture = ICE_SKIN
+
+func _toggle_snow():
+	if state == STATES.SNOW:
+		state = STATES.LIQUID
+		sprite.texture = LIQUID_SKIN
+	else:
+		state = STATES.SNOW
+		sprite.texture = SNOW_SKIN

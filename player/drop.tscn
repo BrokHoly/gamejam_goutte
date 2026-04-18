@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://oft3ky210837"]
 
 [ext_resource type="Script" uid="uid://noojycw5qyn6" path="res://player/drop.gd" id="1_f4jv2"]
-[ext_resource type="Texture2D" uid="uid://cpsqmuwugefmg" path="res://Assets/Sprites/MainCharacter/Goutte.png" id="2_4atf0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dods5"]
-radius = 4.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_4atf0"]
+radius = 3.5
 
-[node name="Drop" type="CharacterBody2D" unique_id=1116228112]
-position = Vector2(28, 30)
+[node name="Drop" type="CharacterBody2D" unique_id=522632408 groups=["player"]]
+motion_mode = 1
 script = ExtResource("1_f4jv2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1376008568]
-texture = ExtResource("2_4atf0")
+position = Vector2(0, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1557798314]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_dods5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879730674]
+shape = SubResource("CircleShape2D_4atf0")
