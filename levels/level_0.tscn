@@ -7,13 +7,13 @@
 script = ExtResource("1_823pn")
 
 [node name="Container" type="Control" parent="." unique_id=919447046]
-custom_minimum_size = Vector2(368, 1024)
+custom_minimum_size = Vector2(92, 256)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 368.0
-offset_bottom = 1024.0
+offset_right = 92.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -28,12 +28,15 @@ color = Color(0.2714229, 0.3612528, 0.30720705, 1)
 
 [node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("1_eus5j")]
 position = Vector2(52, 90)
-motion_mode = 1
 platform_wall_layers = 255
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=135998944]
 anchor_mode = 0
 
-[node name="LeafSpawner" type="Node2D" parent="." unique_id=1747579586]
+[node name="ObstacleSpawner" type="Node2D" parent="." unique_id=1747579586]
 
-[node name="Marker2D" type="Marker2D" parent="LeafSpawner" unique_id=1932542347]
+[node name="LeftAnchor" type="Marker2D" parent="ObstacleSpawner" unique_id=1932542347]
+position = Vector2(0, 269)
+
+[node name="RightAnchor" type="Marker2D" parent="ObstacleSpawner" unique_id=309987629]
+position = Vector2(92, 269)

@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SIDE_SPEED = 70.0
 const DOWN_SPEED = 20.0
 
@@ -10,9 +9,11 @@ var LIQUID_SKIN = load("res://Assets/Sprites/MainCharacter/Goutte.png")
 var ICE_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 var SNOW_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 
-
 var state = STATES.LIQUID
 var sprite : Sprite2D
+
+
+var health := 3
 
 func _ready() -> void:
 	sprite = $Sprite2D
