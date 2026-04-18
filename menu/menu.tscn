@@ -31,7 +31,10 @@ offset_right = 92.0
 offset_bottom = 256.0
 texture = SubResource("PlaceholderTexture2D_6fswf")
 
-[node name="Demarrer" type="Button" parent="." unique_id=1125932846]
+[node name="Buttons" type="Node2D" parent="." unique_id=240147485]
+position = Vector2(0, 12)
+
+[node name="Demarrer" type="Button" parent="Buttons" unique_id=1125932846]
 offset_left = 27.0
 offset_top = 185.00002
 offset_right = 101.0
@@ -40,16 +43,25 @@ scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
 text = "démarrer"
 
-[node name="Debug" type="Button" parent="." unique_id=280505654]
-offset_left = 16.0
-offset_top = 238.00002
-offset_right = 90.0
-offset_bottom = 264.0
+[node name="Debug" type="Button" parent="Buttons" unique_id=280505654]
+offset_left = 3.0
+offset_top = 144.0
+offset_right = 78.0
+offset_bottom = 170.0
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
-text = "Debug Save"
+text = "Save save"
 
-[node name="Credits" type="Button" parent="." unique_id=953472550]
+[node name="LoadSave" type="Button" parent="Buttons" unique_id=96367557]
+offset_left = 47.0
+offset_top = 145.0
+offset_right = 122.0
+offset_bottom = 171.0
+scale = Vector2(0.555, 0.555)
+theme = ExtResource("1_j0t7f")
+text = "load save"
+
+[node name="Credits" type="Button" parent="Buttons" unique_id=953472550]
 offset_left = 27.0
 offset_top = 203.00002
 offset_right = 101.0
@@ -58,7 +70,16 @@ scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
 text = "Credits"
 
-[node name="Quitter" type="Button" parent="." unique_id=1765525106]
+[node name="ModeCoop" type="Button" parent="Buttons" unique_id=2021498822]
+offset_left = 26.0
+offset_top = 165.00002
+offset_right = 106.0
+offset_bottom = 191.00002
+scale = Vector2(0.555, 0.555)
+theme = ExtResource("1_j0t7f")
+text = "ModeCoop"
+
+[node name="Quitter" type="Button" parent="Buttons" unique_id=1765525106]
 offset_left = 27.0
 offset_top = 221.00002
 offset_right = 101.0
@@ -132,8 +153,10 @@ texture_filter = 1
 offset_top = 15.0
 offset_bottom = 31.0
 
-[connection signal="pressed" from="Demarrer" to="." method="_on_demarrer_pressed"]
-[connection signal="pressed" from="Debug" to="." method="_on_debug_pressed"]
-[connection signal="pressed" from="Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="Buttons/Demarrer" to="." method="_on_demarrer_pressed"]
+[connection signal="pressed" from="Buttons/Debug" to="." method="_on_debug_pressed"]
+[connection signal="pressed" from="Buttons/LoadSave" to="." method="_on_load_save_pressed"]
+[connection signal="pressed" from="Buttons/ModeCoop" to="." method="_on_mode_coop_pressed"]
+[connection signal="pressed" from="Buttons/Quitter" to="." method="_on_quitter_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowLeft" to="SkinSelector" method="_on_arrow_left_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowRight" to="SkinSelector" method="_on_arrow_right_pressed"]
