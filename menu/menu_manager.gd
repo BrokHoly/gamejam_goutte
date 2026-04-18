@@ -14,6 +14,7 @@ func _ready() -> void:
 
 
 func _on_demarrer_pressed() -> void:
+	GameManager.playerSkin = $SkinSelector/Skins/Sprite2D.texture
 	get_tree().change_scene_to_file("res://levels/level_0.tscn")
 
 

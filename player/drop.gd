@@ -4,8 +4,7 @@ const SIDE_SPEED: float = 70.0
 const DOWN_SPEED: float = 20.0
 
 enum STATES {LIQUID, ICE, SNOW}
-
-var LIQUID_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
+var LIQUID_SKIN : Resource
 var ICE_SKIN = load("res://Assets/Sprites/MainCharacter/grele.png")
 var SNOW_SKIN = load("res://Assets/Sprites/MainCharacter/flocon.png")
 
@@ -14,6 +13,9 @@ var sprite : Sprite2D
 
 
 func _ready() -> void:
+	LIQUID_SKIN = GameManager.playerSkin
+
+	
 	sprite = $Sprite2D
 	sprite.texture = LIQUID_SKIN
 	GameManager.health_changed.connect(take_damage)
