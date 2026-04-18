@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SIDE_SPEED = 70.0
-const DOWN_SPEED = 20.0
+const SIDE_SPEED: float = 70.0
+const DOWN_SPEED: float = 20.0
 
 enum STATES {LIQUID, ICE, SNOW}
 

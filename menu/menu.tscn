@@ -60,7 +60,11 @@ text = "1500"
 position = Vector2(46, 86)
 script = ExtResource("2_svuvw")
 
-[node name="Sprite2D" type="Sprite2D" parent="SkinSelector" unique_id=929862255]
+[node name="Skins" type="Node2D" parent="SkinSelector" unique_id=1633193606]
+
+[node name="Sprite2D" type="Sprite2D" parent="SkinSelector/Skins" unique_id=694399790]
+
+[node name="DefaultSkins" type="Sprite2D" parent="SkinSelector" unique_id=929862255]
 texture = ExtResource("2_pbjm4")
 
 [node name="ArrowLeft" type="TextureButton" parent="SkinSelector" unique_id=1340809550]
@@ -95,3 +99,5 @@ position = Vector2(46, 128)
 
 [connection signal="pressed" from="Demarrer" to="." method="_on_demarrer_pressed"]
 [connection signal="pressed" from="Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="SkinSelector/ArrowLeft" to="SkinSelector" method="_on_arrow_left_pressed"]
+[connection signal="pressed" from="SkinSelector/ArrowRight" to="SkinSelector" method="_on_arrow_right_pressed"]
