@@ -40,3 +40,5 @@ position = Vector2(0, 269)
 
 [node name="RightAnchor" type="Marker2D" parent="ObstacleSpawner" unique_id=309987629]
 position = Vector2(92, 269)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1455350834]

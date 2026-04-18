@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b0t1i1lik4g8r"]
+
+[ext_resource type="Texture2D" uid="uid://bepbfgv0t2a34" path="res://Assets/UI/HPfull1.png" id="1_mwl4k"]
+[ext_resource type="Script" uid="uid://dimgrmqjs5u1g" path="res://Assets/UI/hp.gd" id="2_mj5gs"]
+
+[node name="TextureRect" type="TextureRect" unique_id=204977200]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_mwl4k")
+stretch_mode = 2
+script = ExtResource("2_mj5gs")

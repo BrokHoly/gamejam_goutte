@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJam_Goutte"
-run/main_scene="uid://dxvfpix0rubdr"
+run/main_scene="uid://dre4jrg7b0oj8"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.70980394, 0.14117648, 0.14117648, 1)
 boot_splash/stretch_mode=4

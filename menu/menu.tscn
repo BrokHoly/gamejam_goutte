@@ -3,12 +3,33 @@
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="1_j0t7f"]
 [ext_resource type="Script" uid="uid://vxt5jdbwrvqr" path="res://menu/menu_manager.gd" id="1_v6yed"]
 [ext_resource type="Texture2D" uid="uid://deekqwdkrkj2e" path="res://Assets/Sprites/MainCharacter/GoutteNoOutline.png" id="2_pbjm4"]
+[ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="2_s4hbh"]
 [ext_resource type="Script" uid="uid://6em8mog78mx" path="res://menu/skin_selector.gd" id="2_svuvw"]
 [ext_resource type="Texture2D" uid="uid://vvutqnn7hqvw" path="res://Assets/UI/ArrowLeft.png" id="3_svuvw"]
 [ext_resource type="Texture2D" uid="uid://krkjwramlpdk" path="res://Assets/UI/ArrowLeftHovert.png" id="5_juveg"]
+[ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="7_v6yed"]
+[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="9_6fswf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bc54p"]
+shader = ExtResource("9_6fswf")
+shader_parameter/blur_amount = 1.4730000699675
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6fswf"]
 
 [node name="Menu" type="Node2D" unique_id=134614102]
 script = ExtResource("1_v6yed")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1386440413]
+texture_filter = 1
+offset_right = 92.0
+offset_bottom = 256.0
+texture = ExtResource("2_s4hbh")
+
+[node name="Blur" type="TextureRect" parent="." unique_id=558716781]
+material = SubResource("ShaderMaterial_bc54p")
+offset_right = 92.0
+offset_bottom = 256.0
+texture = SubResource("PlaceholderTexture2D_6fswf")
 
 [node name="Demarrer" type="Button" parent="." unique_id=1125932846]
 offset_left = 27.0
@@ -18,6 +39,15 @@ offset_bottom = 211.00002
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
 text = "démarrer"
+
+[node name="Debug" type="Button" parent="." unique_id=280505654]
+offset_left = 16.0
+offset_top = 238.00002
+offset_right = 90.0
+offset_bottom = 264.0
+scale = Vector2(0.555, 0.555)
+theme = ExtResource("1_j0t7f")
+text = "Debug Save"
 
 [node name="Credits" type="Button" parent="." unique_id=953472550]
 offset_left = 27.0
@@ -71,9 +101,9 @@ texture = ExtResource("2_pbjm4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -11.0
+offset_left = -12.0
 offset_top = -7.0
-offset_right = -4.0
+offset_right = -5.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -84,9 +114,9 @@ texture_hover = ExtResource("5_juveg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = 5.0
 offset_top = -7.0
-offset_right = 11.0
+offset_right = 12.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -97,7 +127,13 @@ flip_h = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1267309387]
 position = Vector2(46, 128)
 
+[node name="GoutteHP" parent="." unique_id=204977200 instance=ExtResource("7_v6yed")]
+texture_filter = 1
+offset_top = 15.0
+offset_bottom = 31.0
+
 [connection signal="pressed" from="Demarrer" to="." method="_on_demarrer_pressed"]
+[connection signal="pressed" from="Debug" to="." method="_on_debug_pressed"]
 [connection signal="pressed" from="Quitter" to="." method="_on_quitter_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowLeft" to="SkinSelector" method="_on_arrow_left_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowRight" to="SkinSelector" method="_on_arrow_right_pressed"]
