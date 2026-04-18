@@ -1,16 +1,28 @@
 [gd_scene format=3 uid="uid://b3l7trjlunq6j"]
 
-[ext_resource type="Script" uid="uid://c7u1rj122slrl" path="res://props/leaf.gd" id="1_ejvbk"]
+[ext_resource type="Script" uid="uid://c7u1rj122slrl" path="res://props/obstacle.gd" id="1_ejvbk"]
 [ext_resource type="Texture2D" uid="uid://b21tk523htxr7" path="res://Assets/Sprites/Obstacles/ObstacleNoOutline_crop.png" id="1_tkom8"]
 
-[node name="LeftLeaf" type="Area2D" unique_id=1347469236]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejvbk"]
+radius = 33.01515
+
+[node name="LeftLeaf" type="Node2D" unique_id=1839930798 groups=["breakable"]]
 script = ExtResource("1_ejvbk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=751662357]
 position = Vector2(27.5, 0)
 texture = ExtResource("1_tkom8")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1976960263]
+[node name="HitBox" type="Area2D" parent="." unique_id=1423714142]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" unique_id=1976960263]
 polygon = PackedVector2Array(0, 13, 55, 5, 43, -8, 0, -12)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="SpawnBox" type="Area2D" parent="." unique_id=469021438]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBox" unique_id=1249774553]
+position = Vector2(24, 0)
+shape = SubResource("CircleShape2D_ejvbk")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="area_entered" from="SpawnBox" to="." method="_on_spawn_box_area_entered"]

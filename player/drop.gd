@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 func _handle_movements():
 	var side_direction := Input.get_axis("move_left", "move_right")
 	var vert_direction := Input.get_axis("move_up","move_down")
+	
+	# Manage movements based on the drop state 
 	if side_direction:
 		velocity.x = side_direction * SIDE_SPEED
 	else:
@@ -64,3 +66,13 @@ func _toggle_snow():
 	else:
 		state = STATES.SNOW
 		sprite.texture = SNOW_SKIN
+
+
+func is_liquid() -> bool : 
+	return state == STATES.LIQUID
+
+func is_snow() -> bool : 
+	return state == STATES.SNOW
+
+func is_ice() -> bool : 
+	return state == STATES.ICE
