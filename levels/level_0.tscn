@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dxvfpix0rubdr"]
+
+[ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="1_eus5j"]
+
+[node name="Level0" type="Node2D" unique_id=1454019866]
+
+[node name="Container" type="Control" parent="." unique_id=919447046]
+custom_minimum_size = Vector2(368, 1024)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 368.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Container" unique_id=1730286622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("1_eus5j")]
+position = Vector2(52, 90)
+motion_mode = 1
+platform_wall_layers = 255
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=135998944]
+anchor_mode = 0
+
+[node name="LeafSpawner" type="Node2D" parent="." unique_id=1747579586]
+
+[node name="Marker2D" type="Marker2D" parent="LeafSpawner" unique_id=1932542347]
