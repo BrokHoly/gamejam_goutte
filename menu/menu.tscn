@@ -100,9 +100,9 @@ text = "Goutte de la pisse"
 
 [node name="HighestScore" type="Label" parent="." unique_id=73123633]
 texture_filter = 1
-offset_left = 34.0
+offset_left = 36.0
 offset_top = 27.0
-offset_right = 71.69841
+offset_right = 73.69841
 offset_bottom = 51.0
 scale = Vector2(0.63, 0.63)
 theme = ExtResource("1_j0t7f")
@@ -147,7 +147,7 @@ texture_hover = ExtResource("5_juveg")
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1267309387]
-position = Vector2(46, 96)
+anchor_mode = 0
 
 [node name="GoutteHP" parent="." unique_id=204977200 instance=ExtResource("7_v6yed")]
 texture_filter = 1

@@ -29,6 +29,7 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 			# Signal lose health point and maybe even score points ? 
 			print("OUILLE")
 			splash.emit()
+			GameManager.health_changed.emit(-1)
 	pass # Replace with function body.
 
 

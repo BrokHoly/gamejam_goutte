@@ -38,7 +38,7 @@ theme = ExtResource("3_c45eh")
 text = "démarrer"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1268477982]
-position = Vector2(46, 96)
+anchor_mode = 0
 
 [node name="Node2D" type="Node2D" parent="." unique_id=2012807289]
 position = Vector2(0, -30)

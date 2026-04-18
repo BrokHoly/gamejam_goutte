@@ -5,7 +5,7 @@ const DOWN_SPEED: float = 20.0
 
 enum STATES {LIQUID, ICE, SNOW}
 
-var LIQUID_SKIN = load("res://Assets/Sprites/MainCharacter/Goutte.png")
+var LIQUID_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 var ICE_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 var SNOW_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 
@@ -13,11 +13,11 @@ var state = STATES.LIQUID
 var sprite : Sprite2D
 
 
-var health := 3
-
 func _ready() -> void:
 	sprite = $Sprite2D
 	sprite.texture = LIQUID_SKIN
+
+
 
 
 func _physics_process(delta: float) -> void:

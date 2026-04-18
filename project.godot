@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0.70980394, 0.14117648, 0.14117648, 1)
 boot_splash/stretch_mode=4
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://cfihr7ovnxgbp"
+
 [display]
 
 window/size/viewport_width=92

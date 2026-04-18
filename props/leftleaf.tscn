@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3l7trjlunq6j"]
 
-[ext_resource type="Script" uid="uid://c7u1rj122slrl" path="res://props/obstacle.gd" id="1_ejvbk"]
+[ext_resource type="Script" path="res://props/obstacle.gd" id="1_ejvbk"]
 [ext_resource type="Texture2D" uid="uid://b21tk523htxr7" path="res://Assets/Sprites/Obstacles/ObstacleNoOutline_crop.png" id="1_tkom8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ejvbk"]
