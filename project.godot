@@ -23,12 +23,16 @@ window/size/viewport_width=92
 window/size/viewport_height=192
 window/size/mode=3
 window/size/initial_position_type=0
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [global_group]
 
 player=""
+breakable=""
+traversable=""
+invincible=""
 
 [input]
 
