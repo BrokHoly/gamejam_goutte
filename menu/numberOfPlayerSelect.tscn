@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="3_c45eh"]
 [ext_resource type="Texture2D" uid="uid://deekqwdkrkj2e" path="res://Assets/Sprites/MainCharacter/GoutteNoOutline.png" id="4_lbub1"]
 [ext_resource type="Texture2D" uid="uid://cbdpdwh5oreu7" path="res://Assets/UI/player2r.png" id="5_mhc8g"]
+[ext_resource type="Texture2D" uid="uid://cnlpqq8pexira" path="res://Assets/UI/buttonNormalt.png" id="6_34g2d"]
+[ext_resource type="Texture2D" uid="uid://drretbd3okwdc" path="res://Assets/UI/buttonPressedt.png" id="7_fh58b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wd3j0"]
 shader = ExtResource("2_c45eh")
@@ -67,6 +69,102 @@ theme_override_colors/font_color = Color(0.28627452, 0.58431375, 0.9529412, 1)
 text = "PLayer 1 "
 metadata/_edit_use_anchors_ = true
 
+[node name="TextureButton" type="TextureButton" parent="Node2D/Player 1" unique_id=228133599]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 20.0
+offset_right = 2.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton" unique_id=1057956296]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 46.0
+offset_bottom = 25.0
+scale = Vector2(0.475, 0.475)
+theme = ExtResource("3_c45eh")
+text = "Q"
+
+[node name="TextureButton2" type="TextureButton" parent="Node2D/Player 1" unique_id=687947689]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 14.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton2" unique_id=1731122169]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 46.0
+offset_bottom = 25.0
+scale = Vector2(0.475, 0.475)
+theme = ExtResource("3_c45eh")
+text = "z"
+
+[node name="TextureButton4" type="TextureButton" parent="Node2D/Player 1" unique_id=939463955]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 20.0
+offset_right = 14.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton4" unique_id=1650086125]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 46.0
+offset_bottom = 25.0
+scale = Vector2(0.475, 0.475)
+theme = ExtResource("3_c45eh")
+text = "s"
+
+[node name="TextureButton3" type="TextureButton" parent="Node2D/Player 1" unique_id=610585004]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 20.0
+offset_right = 26.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton3" unique_id=1881578619]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 46.0
+offset_bottom = 25.0
+scale = Vector2(0.475, 0.475)
+theme = ExtResource("3_c45eh")
+text = "d"
+
 [node name="Player 2" type="Node2D" parent="Node2D" unique_id=2046916449]
 position = Vector2(69, 112)
 
@@ -90,5 +188,97 @@ theme = ExtResource("3_c45eh")
 theme_override_colors/font_color = Color(0.9098039, 0.23137255, 0.23137255, 1)
 text = "PLayer 2"
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Node2D/Player 2" unique_id=2005681717]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 20.0
+offset_right = 2.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton" unique_id=1910619928]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 46.0
+offset_bottom = 23.0
+scale = Vector2(0.57, 0.57)
+theme = ExtResource("3_c45eh")
+text = "←"
+
+[node name="TextureButton2" type="TextureButton" parent="Node2D/Player 2" unique_id=15650493]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 14.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton2" unique_id=1423376830]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 46.0
+offset_bottom = 23.0
+scale = Vector2(0.57, 0.57)
+theme = ExtResource("3_c45eh")
+text = "↑"
+
+[node name="TextureButton4" type="TextureButton" parent="Node2D/Player 2" unique_id=1327355143]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 20.0
+offset_right = 14.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton4" unique_id=1867318599]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 46.0
+offset_bottom = 23.0
+scale = Vector2(0.57, 0.57)
+theme = ExtResource("3_c45eh")
+text = "↓"
+
+[node name="TextureButton3" type="TextureButton" parent="Node2D/Player 2" unique_id=1657344134]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 20.0
+offset_right = 26.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_34g2d")
+texture_hover = ExtResource("7_fh58b")
+
+[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton3" unique_id=1553884058]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 46.0
+offset_bottom = 23.0
+scale = Vector2(0.57, 0.57)
+theme = ExtResource("3_c45eh")
+text = "→"
 
 [connection signal="pressed" from="Demarrer" to="." method="_on_demarrer_pressed"]

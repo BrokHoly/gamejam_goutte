@@ -11,6 +11,7 @@ motion_mode = 1
 script = ExtResource("1_f4jv2")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=343669229]
+visible = false
 position = Vector2(0, -5)
 amount = 10
 texture = ExtResource("2_4atf0")
