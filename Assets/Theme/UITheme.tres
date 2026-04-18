@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://3wq2jg2uqmn6"]
+
+[ext_resource type="FontFile" uid="uid://bwdvbbp7mlea6" path="res://Assets/Fonts/pixel.ttf" id="1_cfyfn"]
+
+[resource]
+default_font = ExtResource("1_cfyfn")
+default_font_size = 10
