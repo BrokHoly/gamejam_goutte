@@ -27,7 +27,7 @@ grow_vertical = 2
 color = Color(0.2714229, 0.3612528, 0.30720705, 1)
 
 [node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("1_eus5j")]
-position = Vector2(52, 90)
+position = Vector2(45, 76)
 platform_wall_layers = 255
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=135998944]
