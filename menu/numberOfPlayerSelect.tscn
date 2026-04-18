@@ -37,10 +37,16 @@ scale = Vector2(0.555, 0.555)
 theme = ExtResource("3_c45eh")
 text = "démarrer"
 
-[node name="Player 1" type="Node2D" parent="." unique_id=1621445368]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1268477982]
+position = Vector2(46, 96)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2012807289]
+position = Vector2(0, -30)
+
+[node name="Player 1" type="Node2D" parent="Node2D" unique_id=1621445368]
 position = Vector2(22, 112)
 
-[node name="Player1" type="TextureRect" parent="Player 1" unique_id=1570035873]
+[node name="Player1" type="TextureRect" parent="Node2D/Player 1" unique_id=1570035873]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,7 +56,7 @@ texture = ExtResource("4_lbub1")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Player 1" unique_id=919268016]
+[node name="Label" type="Label" parent="Node2D/Player 1" unique_id=919268016]
 offset_left = -7.0
 offset_top = -13.0
 offset_right = 51.0
@@ -59,11 +65,12 @@ scale = Vector2(0.3, 0.3)
 theme = ExtResource("3_c45eh")
 theme_override_colors/font_color = Color(0.28627452, 0.58431375, 0.9529412, 1)
 text = "PLayer 1 "
+metadata/_edit_use_anchors_ = true
 
-[node name="Player 2" type="Node2D" parent="." unique_id=2046916449]
+[node name="Player 2" type="Node2D" parent="Node2D" unique_id=2046916449]
 position = Vector2(69, 112)
 
-[node name="Player2" type="TextureRect" parent="Player 2" unique_id=898140525]
+[node name="Player2" type="TextureRect" parent="Node2D/Player 2" unique_id=898140525]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -73,7 +80,7 @@ texture = ExtResource("5_mhc8g")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Player 2" unique_id=96363093]
+[node name="Label" type="Label" parent="Node2D/Player 2" unique_id=96363093]
 offset_left = -7.0
 offset_top = -13.0
 offset_right = 51.0
@@ -82,5 +89,6 @@ scale = Vector2(0.3, 0.3)
 theme = ExtResource("3_c45eh")
 theme_override_colors/font_color = Color(0.9098039, 0.23137255, 0.23137255, 1)
 text = "PLayer 2"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Demarrer" to="." method="_on_demarrer_pressed"]

@@ -32,7 +32,7 @@ offset_bottom = 256.0
 texture = SubResource("PlaceholderTexture2D_6fswf")
 
 [node name="Buttons" type="Node2D" parent="." unique_id=240147485]
-position = Vector2(0, 12)
+position = Vector2(0, -45)
 
 [node name="Demarrer" type="Button" parent="Buttons" unique_id=1125932846]
 offset_left = 27.0
@@ -77,7 +77,7 @@ offset_right = 106.0
 offset_bottom = 191.00002
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
-text = "ModeCoop"
+text = "Mode Coop"
 
 [node name="Quitter" type="Button" parent="Buttons" unique_id=1765525106]
 offset_left = 27.0
@@ -91,8 +91,9 @@ text = "quitter"
 [node name="Title" type="Label" parent="." unique_id=1882164434]
 texture_filter = 1
 offset_left = 6.0
+offset_top = 4.9999995
 offset_right = 131.0
-offset_bottom = 24.0
+offset_bottom = 29.0
 scale = Vector2(0.63, 0.63)
 theme = ExtResource("1_j0t7f")
 text = "Goutte de la pisse"
@@ -108,7 +109,7 @@ theme = ExtResource("1_j0t7f")
 text = "1500"
 
 [node name="SkinSelector" type="Node2D" parent="." unique_id=1062149578]
-position = Vector2(46, 86)
+position = Vector2(46, 71)
 script = ExtResource("2_svuvw")
 
 [node name="Skins" type="Node2D" parent="SkinSelector" unique_id=1633193606]
@@ -146,7 +147,7 @@ texture_hover = ExtResource("5_juveg")
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1267309387]
-position = Vector2(46, 128)
+position = Vector2(46, 96)
 
 [node name="GoutteHP" parent="." unique_id=204977200 instance=ExtResource("7_v6yed")]
 texture_filter = 1
