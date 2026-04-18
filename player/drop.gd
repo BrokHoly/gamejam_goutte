@@ -6,8 +6,8 @@ const DOWN_SPEED: float = 20.0
 enum STATES {LIQUID, ICE, SNOW}
 
 var LIQUID_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
-var ICE_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
-var SNOW_SKIN = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
+var ICE_SKIN = load("res://Assets/Sprites/MainCharacter/grele.png")
+var SNOW_SKIN = load("res://Assets/Sprites/MainCharacter/flocon.png")
 
 var state = STATES.LIQUID
 var sprite : Sprite2D
@@ -23,6 +23,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_handle_movements()
 	_handle_inputs()
+	
+func _process(delta: float) -> void:
+	if(state == STATES.SNOW):
+		rotation += 0.05
+
+
 
 func take_damage(amount : int):
 	if(is_inside_tree()):

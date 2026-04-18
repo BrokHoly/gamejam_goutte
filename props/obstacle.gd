@@ -1,6 +1,5 @@
 extends Node2D
 
-signal splash
 
 var speed = 0.0
 
@@ -20,15 +19,15 @@ func _process(delta: float) -> void:
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.is_ice() and is_in_group("breakable"):
-			
+			GameManager.score += 100
+			#TODO make an animation or something
 			pass
 		if body.is_liquid() and is_in_group("travesable"):
-			# Add bonus point to Score
+			GameManager.scre += 100
+			#TODO make an animation or something
 			pass 
 		else :
 			# Signal lose health point and maybe even score points ? 
-			print("OUILLE")
-			splash.emit()
 			GameManager.health_changed.emit(-1)
 	pass # Replace with function body.
 

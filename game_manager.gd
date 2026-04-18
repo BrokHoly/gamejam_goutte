@@ -7,13 +7,18 @@ var number_of_player : int = 1
 
 signal health_changed(amount: int)
 signal health_depleted()
+signal highest_score_changed()
 
 
-const highest_score: String = "highest_score"
+const highest_score_str: String = "highest_score"
+var highest_score : int = load_highest_score()
+
 
 @onready var health: int = 3
 @onready var score : int = 0
 @onready var start_score: bool = false
+
+var playerSkin : Resource
 
 func _process(delta: float) -> void:
 	if (start_score):
@@ -35,6 +40,8 @@ func reset_values() ->void:
 	start_score = false
 	if(score > load_highest_score()):
 		save_highest_score(score)
+		highest_score = score
+		highest_score_changed.emit()
 	
 	score = 0
 	
@@ -43,7 +50,7 @@ func reset_values() ->void:
 func save_highest_score(score : int) -> void:
 	var save_file: FileAccess = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var save_dict: Dictionary[String, int] = {
-		highest_score: score,
+		highest_score_str: score,
 	}
 	var json_string: String = JSON.stringify(save_dict)
 	save_file.store_line(json_string)
@@ -63,7 +70,7 @@ func load_highest_score() -> int:
 			continue
 			
 		var node_data = json.data
-		var found = node_data[highest_score]
+		var found = node_data[highest_score_str]
 		return found
 		
 	return -1

@@ -2,11 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="1_j0t7f"]
 [ext_resource type="Script" uid="uid://vxt5jdbwrvqr" path="res://menu/menu_manager.gd" id="1_v6yed"]
-[ext_resource type="Texture2D" uid="uid://deekqwdkrkj2e" path="res://Assets/Sprites/MainCharacter/GoutteNoOutline.png" id="2_pbjm4"]
 [ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="2_s4hbh"]
 [ext_resource type="Script" uid="uid://6em8mog78mx" path="res://menu/skin_selector.gd" id="2_svuvw"]
 [ext_resource type="Texture2D" uid="uid://vvutqnn7hqvw" path="res://Assets/UI/ArrowLeft.png" id="3_svuvw"]
 [ext_resource type="Texture2D" uid="uid://krkjwramlpdk" path="res://Assets/UI/ArrowLeftHovert.png" id="5_juveg"]
+[ext_resource type="Texture2D" uid="uid://dgmc1d5w3p1es" path="res://Assets/UI/locked.png" id="6_6fswf"]
 [ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="7_v6yed"]
 [ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="9_6fswf"]
 
@@ -116,16 +116,37 @@ script = ExtResource("2_svuvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="SkinSelector/Skins" unique_id=694399790]
 
-[node name="DefaultSkins" type="Sprite2D" parent="SkinSelector" unique_id=929862255]
-texture = ExtResource("2_pbjm4")
+[node name="TextureRect" type="TextureRect" parent="SkinSelector/Skins" unique_id=2119489537]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_6fswf")
+
+[node name="Label" type="Label" parent="SkinSelector/Skins" unique_id=840344042]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 4.9999995
+offset_right = 42.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.17, 0.17)
+theme = ExtResource("1_j0t7f")
+text = "locked
+"
 
 [node name="ArrowLeft" type="TextureButton" parent="SkinSelector" unique_id=1340809550]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -12.0
+offset_left = -14.0
 offset_top = -7.0
-offset_right = -5.0
+offset_right = -7.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -136,9 +157,9 @@ texture_hover = ExtResource("5_juveg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
+offset_left = 7.0
 offset_top = -7.0
-offset_right = 12.0
+offset_right = 14.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
