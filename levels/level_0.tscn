@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dxvfpix0rubdr"]
 
+[ext_resource type="Script" uid="uid://dgcafqukaoyo7" path="res://levels/level.gd" id="1_823pn"]
 [ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="1_eus5j"]
 
 [node name="Level0" type="Node2D" unique_id=1454019866]
+script = ExtResource("1_823pn")
 
 [node name="Container" type="Control" parent="." unique_id=919447046]
 custom_minimum_size = Vector2(368, 1024)
@@ -22,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 1, 1)
+color = Color(0.2714229, 0.3612528, 0.30720705, 1)
 
 [node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("1_eus5j")]
 position = Vector2(52, 90)

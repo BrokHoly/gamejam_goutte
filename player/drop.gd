@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SIDE_SPEED = 100.0
-const DOWN_SPEED = 70.0
+const SIDE_SPEED = 70.0
+const DOWN_SPEED = 20.0
 
 func _ready() -> void:
 	pass
