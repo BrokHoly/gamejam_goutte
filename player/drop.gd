@@ -1,7 +1,13 @@
 extends CharacterBody2D
 
+signal change_player_speed(playerID: int, bonus: float)
+
 const SIDE_SPEED: float = 70.0
 const DOWN_SPEED: float = 20.0
+const ICE_DOWN_FLAT : float = 10.0
+const ICE_SIDE_MULT : float = 0.8
+const SNOW_DOWN_FLAT : float = -10.0
+const SNOW_SIDE_MULT : float = 1.1
 
 enum STATES {LIQUID, ICE, SNOW}
 var LIQUID_SKIN : Resource
@@ -42,11 +48,8 @@ func _ready() -> void:
 	SNOW_SPRITE = $SnowSprite
 	
 	LIQUID_SPRITE.texture = LIQUID_SKIN
+	activate_liquid()
 	
-	LIQUID_SPRITE.show()
-	ICE_SPRITE.hide()
-	SNOW_SPRITE.hide()
-	sprite = LIQUID_SPRITE
 	
 	baseColor = LIQUID_COLOR
 	targetColor = LIQUID_COLOR
@@ -93,13 +96,20 @@ func _handle_movements():
 	# Manage movements based on the drop state 
 	if side_direction:
 		velocity.x = side_direction * SIDE_SPEED
+		if state == STATES.ICE:
+			velocity.x *= ICE_SIDE_MULT
+		if state == STATES.SNOW:
+			velocity.x *= SNOW_SIDE_MULT
 	else:
 		velocity.x = move_toward(velocity.x, 0, SIDE_SPEED)
 	if vert_direction:
 		velocity.y = vert_direction * DOWN_SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, DOWN_SPEED)
-	
+	if state == STATES.ICE:
+		velocity.y += ICE_DOWN_FLAT
+	if state == STATES.SNOW:
+		velocity.y += SNOW_DOWN_FLAT
 	move_and_slide()
 	pass
 
@@ -115,7 +125,6 @@ func _handle_inputs():
 func _toggle_ice():
 	if state == STATES.ICE:
 		activate_liquid()
-		
 	else:
 		GameManager.change_pitch_and_play($TransformIce)
 		baseColor = targetColor
@@ -130,6 +139,15 @@ func _toggle_ice():
 		ICE_SPRITE.visible = true
 		LIQUID_SHAPE.visible = false
 		SNOW_SPRITE.visible = false
+		if is_in_group("Player1"):
+			emit_signal("change_player_speed",1, ICE_DOWN_FLAT)
+			change_player_speed.emit(1, ICE_DOWN_FLAT)
+		elif is_in_group("Player2"):
+			emit_signal("change_player_speed",2, ICE_DOWN_FLAT)
+			change_player_speed.emit(2, ICE_DOWN_FLAT)
+		else:
+			emit_signal("change_player_speed",0, ICE_DOWN_FLAT)
+			change_player_speed.emit(0, ICE_DOWN_FLAT)
 		
 
 func _toggle_snow():
@@ -149,6 +167,17 @@ func _toggle_snow():
 		SNOW_SPRITE.visible = true
 		LIQUID_SHAPE.visible = false
 		ICE_SPRITE.visible = false
+		if is_in_group("Player1"):
+			change_player_speed.emit(1, SNOW_DOWN_FLAT)
+			emit_signal("change_player_speed",1, SNOW_DOWN_FLAT)
+			
+		elif is_in_group("Player2"):
+			emit_signal("change_player_speed",0, SNOW_DOWN_FLAT)
+			change_player_speed.emit(2, SNOW_DOWN_FLAT)
+		else:
+			emit_signal("change_player_speed",0, SNOW_DOWN_FLAT)
+			change_player_speed.emit(0, SNOW_DOWN_FLAT)
+		
 
 func activate_liquid():
 	GameManager.change_pitch_and_play($TranformLiquid)
@@ -164,7 +193,16 @@ func activate_liquid():
 	LIQUID_SHAPE.visible = true
 	ICE_SPRITE.visible = false
 	SNOW_SPRITE.visible = false
-
+	if is_in_group("Player1"):
+		emit_signal("change_player_speed",1, 1.0)
+		change_player_speed.emit(1, 1.0)
+	elif is_in_group("Player2"):
+		emit_signal("change_player_speed",2, 1.0)
+		change_player_speed.emit(2, 1.0)
+	else:
+		emit_signal("change_player_speed",0, 1.0)
+		change_player_speed.emit(0, 1.0)
+		
 func is_liquid() -> bool : 
 	return state == STATES.LIQUID
 

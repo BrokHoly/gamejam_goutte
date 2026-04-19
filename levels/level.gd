@@ -1,12 +1,15 @@
 extends Node2D
 
+signal change_player_speed(playerID: int, bonus: float)
+
 var spawner : Node2D
 var left_anchor : Marker2D 
 var right_anchor : Marker2D 
 
 var current_obstacles_speed: float
-const OBSTACLES_MIN_SPEED: float = 60.0
-const OBSTACLES_MAX_SPEED: float = 120.0
+var OBSTACLES_MIN_SPEED: float = 60.0
+var OBSTACLES_MAX_SPEED: float = 110.0
+var last_bonus_players: Array[float]
 
 const SCORE_UNTIL_MAX_SPEED:int = 10000
 
@@ -19,8 +22,6 @@ const TIME_RANGE = 1.0
 
 var time_until_next_left_obstacle := 100.0
 var time_until_next_right_obstacle := 100.0
-#var right_strike := 0.0
-#var left_strike := 0.0
 
 var LEFT_OBSTACLES_SCENES : Array[Node2D]
 var RIGHT_OBSTACLES_SCENES : Array[Node2D] 
@@ -43,6 +44,8 @@ func _ready() -> void:
 	]
 	# Instanciate Obstacles
 	GameManager.start_score = true
+	_prepare_players_arrays()
+	last_bonus_players.set(0,1.0)
 	var first_right = randf() > 0.5
 	if first_right:
 		time_until_next_right_obstacle = 0.0
@@ -50,6 +53,8 @@ func _ready() -> void:
 	else :
 		time_until_next_left_obstacle = 0.0
 		time_until_next_right_obstacle = TIME_BETWEEN_OBSTACLES/2 + randf() * TIME_RANGE
+	
+	change_player_speed.connect(updateObstaclesSpeed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
@@ -57,7 +62,7 @@ func _process(delta: float) -> void:
 	time_until_next_right_obstacle -= delta
 	
 	current_obstacles_speed = minf(OBSTACLES_MIN_SPEED + ((float(GameManager.score) / SCORE_UNTIL_MAX_SPEED) * (OBSTACLES_MAX_SPEED - OBSTACLES_MIN_SPEED)),OBSTACLES_MAX_SPEED)
-	#print(current_obstacles_speed)
+	print(current_obstacles_speed)
 	if time_until_next_right_obstacle < 0.0:
 		spawn_right_obstacle()
 		time_until_next_right_obstacle = TIME_BETWEEN_OBSTACLES + randf() * TIME_RANGE
@@ -87,3 +92,24 @@ func spawn_right_obstacle():
 	#sprite2D.flip_h = true;
 	#right_strike += 1.0
 	#left_strike = 0.0
+
+func _prepare_players_arrays():
+	for i in GameManager.number_of_player:
+		last_bonus_players.append(1.0)
+
+func updateObstaclesSpeed(player: int, bonus: float):
+	if GameManager.coop:
+		for i in range(last_bonus_players):
+			if bonus > last_bonus_players[i]:
+				OBSTACLES_MIN_SPEED = 60.0 * bonus
+				OBSTACLES_MAX_SPEED = 110.0 * bonus
+				last_bonus_players[i] = bonus
+	else:
+		if bonus > last_bonus_players[0]:
+			OBSTACLES_MIN_SPEED = 60.0 * bonus
+			OBSTACLES_MAX_SPEED = 110.0 * bonus
+			print(OBSTACLES_MIN_SPEED)
+			last_bonus_players[0] = bonus
+		
+		
+	 

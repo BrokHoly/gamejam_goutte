@@ -27,11 +27,9 @@ script = ExtResource("1_f4jv2")
 shape = SubResource("CircleShape2D_4atf0")
 
 [node name="IceCollision" type="CollisionShape2D" parent="." unique_id=1767547155]
-visible = false
 shape = SubResource("RectangleShape2D_spdk8")
 
 [node name="SnowCollision" type="CollisionShape2D" parent="." unique_id=1672877451]
-visible = false
 shape = SubResource("CircleShape2D_spdk8")
 
 [node name="DropParticules" type="CPUParticles2D" parent="." unique_id=91794546]
@@ -63,11 +61,9 @@ position = Vector2(0, -1)
 texture = ExtResource("3_ipc8g")
 
 [node name="IceSprite" type="Sprite2D" parent="." unique_id=787494391]
-visible = false
 texture = ExtResource("4_wycpn")
 
 [node name="SnowSprite" type="Sprite2D" parent="." unique_id=1690697474]
-visible = false
 texture = ExtResource("7_spdk8")
 
 [node name="TransformIce" type="AudioStreamPlayer2D" parent="." unique_id=805322775]
