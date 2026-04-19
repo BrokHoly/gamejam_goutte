@@ -1,7 +1,7 @@
 extends Node
 
 var number_of_player : int = 1
-
+var coop : bool = false
 
 
 
@@ -19,6 +19,7 @@ var highest_score : int = load_highest_score()
 @onready var health: int = 3
 @onready var healthP2: int = 3
 @onready var score : int = 0
+@onready var scoreP2 : int = 0
 @onready var start_score: bool = false
 
 var playerSkin : Resource
@@ -26,6 +27,9 @@ var playerSkin : Resource
 func _process(delta: float) -> void:
 	if (start_score):
 		score += 1
+		if(coop):
+		scoreP2 +=1
+	
 	
 
 func _ready() -> void:
@@ -42,7 +46,7 @@ func health_changedyipi(amount :int)->void:
 		health_depleted.emit()
 		
 func health_changedP2Yipiiii(amount :int)->void:
-	if(number_of_player>1):
+	if(coop):
 		healthP2 += amount
 		if(healthP2 == 0):
 			health_depleted.emit()
@@ -51,15 +55,25 @@ func health_changedP2Yipiiii(amount :int)->void:
 	
 
 func reset_values() ->void:
-	health = 3
-	healthP2 = 3
-	start_score = false
-	if(score > load_highest_score()):
-		save_highest_score(score)
-		highest_score = score
-		highest_score_changed.emit()
+	if(not coop):
+		health = 3
+		healthP2 = 3
+		start_score = false
 	
-	score = 0
+		if(score > load_highest_score()):
+			save_highest_score(score)
+			highest_score = score
+			highest_score_changed.emit()
+		
+		score = 0
+	else:
+		health = 3
+		healthP2 = 3
+		start_score = false
+		score = 0
+		scoreP2 = 0
+		number_of_player = 1
+		coop = false
 	
 	get_tree().change_scene_to_file("res://menu/menu.tscn")
 

@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bae1eegf5kclu" path="res://player/dropP2.gd" id="1_5j3np"]
 [ext_resource type="Texture2D" uid="uid://d3spw256g6i7m" path="res://Assets/FX/particuleRed1.png" id="2_ibqbo"]
 [ext_resource type="Texture2D" uid="uid://cbdpdwh5oreu7" path="res://Assets/UI/player2r.png" id="4_5j3np"]
-[ext_resource type="Texture2D" path="res://Assets/UI/glaconP2.png" id="5_j3f8l"]
-[ext_resource type="Texture2D" path="res://Assets/UI/floconP2.png" id="6_rjfd6"]
+[ext_resource type="Texture2D" uid="uid://3etg6fstgh3o" path="res://Assets/Sprites/MainCharacter/glaconP2.png" id="4_ibqbo"]
+[ext_resource type="Texture2D" uid="uid://bowlb6f5ewobj" path="res://Assets/Sprites/MainCharacter/floconP2.png" id="5_5j3np"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4atf0"]
 radius = 4.0
@@ -72,8 +72,8 @@ texture = ExtResource("4_5j3np")
 
 [node name="IceSprite" type="Sprite2D" parent="." unique_id=787494391]
 visible = false
-texture = ExtResource("5_j3f8l")
+texture = ExtResource("4_ibqbo")
 
 [node name="SnowSprite" type="Sprite2D" parent="." unique_id=1690697474]
 visible = false
-texture = ExtResource("6_rjfd6")
+texture = ExtResource("5_5j3np")

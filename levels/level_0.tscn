@@ -57,7 +57,7 @@ offset_right = 45.405
 offset_bottom = 220.0
 texture = SubResource("PlaceholderTexture2D_dm5o4")
 
-[node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("1_eus5j")]
+[node name="Drop" parent="." unique_id=1116228112 groups=["Player1"] instance=ExtResource("1_eus5j")]
 position = Vector2(45, 76)
 platform_wall_layers = 255
 
@@ -76,7 +76,7 @@ position = Vector2(92, 269)
 visible = false
 energy = 0.1
 
-[node name="CurrentScore" type="Label" parent="." unique_id=685484745]
+[node name="CurrentScore" type="Label" parent="." unique_id=685484745 groups=["Player1"]]
 offset_left = 42.0
 offset_right = 60.0
 offset_bottom = 18.0
@@ -85,7 +85,7 @@ theme = ExtResource("4_yi3jx")
 text = "10"
 script = ExtResource("5_7d3si")
 
-[node name="TextureRect" parent="." unique_id=204977200 instance=ExtResource("5_foxie")]
+[node name="TextureRect" parent="." unique_id=204977200 groups=["Player1"] instance=ExtResource("5_foxie")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=925069740]
 

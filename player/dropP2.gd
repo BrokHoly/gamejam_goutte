@@ -43,7 +43,7 @@ func _ready() -> void:
 	
 	DROP_PARTICULES = $DropParticules
 	
-	GameManager.health_changed.connect(take_damage)
+	GameManager.health_changedP2.connect(take_damage)
 
 
 func _physics_process(delta: float) -> void:

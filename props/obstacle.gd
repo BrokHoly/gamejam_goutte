@@ -18,17 +18,32 @@ func _process(delta: float) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if body.is_ice() and is_in_group("breakable"):
-			GameManager.score += 100
-			#TODO make an animation or something
-			pass
-		elif body.is_liquid() and is_in_group("traversable"):
-			GameManager.score += 100
-			#TODO make an animation or something
-			pass 
-		else :
-			# Signal lose health point and maybe even score points ? 
-			GameManager.health_changed.emit(-1)
+		if body.is_in_group("Player1"):
+			if body.is_ice() and is_in_group("breakable"):
+				GameManager.score += 100
+				#TODO make an animation or something
+				pass
+			if body.is_liquid() and is_in_group("travesable"):
+				GameManager.score += 100
+				#TODO make an animation or something
+				pass 
+			else :
+				# Signal lose health point and maybe even score points ? 
+				GameManager.health_changed.emit(-1)
+		elif(body.is_in_group("Player2")):
+			if body.is_ice() and is_in_group("breakable"):
+				GameManager.scoreP2 += 100
+				#TODO make an animation or something
+				pass
+			if body.is_liquid() and is_in_group("travesable"):
+				GameManager.scoreP2 += 100
+				#TODO make an animation or something
+				pass 
+			else :
+				# Signal lose health point and maybe even score points ? 
+				GameManager.health_changedP2.emit(-1)
+			
+	
 	pass # Replace with function body.
 
 
