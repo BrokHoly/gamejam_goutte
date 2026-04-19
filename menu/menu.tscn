@@ -53,10 +53,10 @@ theme = ExtResource("1_j0t7f")
 text = "Save save"
 
 [node name="LoadSave" type="Button" parent="Buttons" unique_id=96367557]
-offset_left = 47.0
-offset_top = 145.0
-offset_right = 122.0
-offset_bottom = 171.0
+offset_left = 48.0
+offset_top = 144.0
+offset_right = 123.0
+offset_bottom = 170.0
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
 text = "load save"

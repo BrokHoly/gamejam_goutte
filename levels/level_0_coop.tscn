@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://dxvfpix0rubdr"]
+[gd_scene format=3 uid="uid://c2wl0qmbvc0eq"]
 
-[ext_resource type="Script" uid="uid://dgcafqukaoyo7" path="res://levels/level.gd" id="1_823pn"]
-[ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="1_eus5j"]
-[ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="3_iss0w"]
-[ext_resource type="Texture2D" uid="uid://bm6qc8fjjp7xt" path="res://Assets/FX/particle2Square.png" id="3_jum3j"]
-[ext_resource type="Shader" path="res://menu/menu.gdshader" id="4_c4pne"]
-[ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="4_yi3jx"]
-[ext_resource type="Script" uid="uid://q08yasbnha2s" path="res://levels/update_score.gd" id="5_7d3si"]
-[ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="5_foxie"]
+[ext_resource type="Script" uid="uid://dgcafqukaoyo7" path="res://levels/level.gd" id="1_rufd8"]
+[ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="2_pk6kn"]
+[ext_resource type="Texture2D" uid="uid://bm6qc8fjjp7xt" path="res://Assets/FX/particle2Square.png" id="3_1figq"]
+[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="4_myyap"]
+[ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="5_wkek1"]
+[ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="6_b003m"]
+[ext_resource type="Script" uid="uid://q08yasbnha2s" path="res://levels/update_score.gd" id="7_75xia"]
+[ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="8_paqo6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tfamw"]
-shader = ExtResource("4_c4pne")
+shader = ExtResource("4_myyap")
 shader_parameter/blur_amount = 1.4730000699675
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dm5o4"]
@@ -25,7 +25,7 @@ size = Vector2(197, 20)
 size = Vector2(92, 39)
 
 [node name="Level0" type="Node2D" unique_id=1454019866]
-script = ExtResource("1_823pn")
+script = ExtResource("1_rufd8")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1455350834]
 repeat_size = Vector2(0, 256)
@@ -34,12 +34,12 @@ repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1537877102]
 position = Vector2(46, 128)
-texture = ExtResource("3_iss0w")
+texture = ExtResource("2_pk6kn")
 
 [node name="Pluies" type="CPUParticles2D" parent="." unique_id=1301644836]
 position = Vector2(46.595, -25)
 amount = 117
-texture = ExtResource("3_jum3j")
+texture = ExtResource("3_1figq")
 lifetime = 2.0
 preprocess = 2.67
 speed_scale = 0.15
@@ -57,7 +57,7 @@ offset_right = 45.405
 offset_bottom = 220.0
 texture = SubResource("PlaceholderTexture2D_dm5o4")
 
-[node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("1_eus5j")]
+[node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("5_wkek1")]
 position = Vector2(45, 76)
 platform_wall_layers = 255
 
@@ -81,11 +81,11 @@ offset_left = 42.0
 offset_right = 60.0
 offset_bottom = 18.0
 scale = Vector2(0.535, 0.535)
-theme = ExtResource("4_yi3jx")
+theme = ExtResource("6_b003m")
 text = "10"
-script = ExtResource("5_7d3si")
+script = ExtResource("7_75xia")
 
-[node name="TextureRect" parent="." unique_id=204977200 instance=ExtResource("5_foxie")]
+[node name="TextureRect" parent="." unique_id=204977200 instance=ExtResource("8_paqo6")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=925069740]
 
