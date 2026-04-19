@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="2_s4hbh"]
 [ext_resource type="Script" uid="uid://6em8mog78mx" path="res://menu/skin_selector.gd" id="2_svuvw"]
 [ext_resource type="Texture2D" uid="uid://vvutqnn7hqvw" path="res://Assets/UI/ArrowLeft.png" id="3_svuvw"]
+[ext_resource type="Texture2D" uid="uid://lhwoouiccpni" path="res://Assets/UI/coopbutton-expor1t.png" id="5_043lm"]
 [ext_resource type="Texture2D" uid="uid://krkjwramlpdk" path="res://Assets/UI/ArrowLeftHovert.png" id="5_juveg"]
 [ext_resource type="Texture2D" uid="uid://dgmc1d5w3p1es" path="res://Assets/UI/locked.png" id="6_6fswf"]
+[ext_resource type="Texture2D" uid="uid://d0odeoxvp8m75" path="res://Assets/UI/coopbutton-expor2t.png" id="6_iesyu"]
 [ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="9_6fswf"]
 [ext_resource type="AudioStream" uid="uid://cp6yhfy4uo38s" path="res://Assets/Audio/UI_base.mp3" id="9_bc54p"]
 
@@ -34,41 +36,37 @@ texture = SubResource("PlaceholderTexture2D_6fswf")
 [node name="Buttons" type="Node2D" parent="." unique_id=240147485]
 position = Vector2(0, -45)
 
-[node name="Demarrer" type="Button" parent="Buttons" unique_id=1125932846]
+[node name="Demarrer" type="TextureButton" parent="Buttons" unique_id=1728945346]
 offset_left = 27.0
 offset_top = 185.00002
 offset_right = 101.0
 offset_bottom = 211.00002
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
-text = "démarrer"
 
-[node name="Tuto" type="Button" parent="Buttons" unique_id=953472550]
+[node name="Tuto" type="TextureButton" parent="Buttons" unique_id=1543133331]
 offset_left = 27.0
 offset_top = 203.00002
 offset_right = 101.0
 offset_bottom = 229.00002
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
-text = "Tutoriel"
 
-[node name="ModeCoop" type="Button" parent="Buttons" unique_id=2021498822]
-offset_left = 26.0
-offset_top = 165.00002
-offset_right = 106.0
-offset_bottom = 191.00002
-scale = Vector2(0.555, 0.555)
-theme = ExtResource("1_j0t7f")
-text = "Mode Coop"
-
-[node name="Quitter" type="Button" parent="Buttons" unique_id=1765525106]
+[node name="Quitter" type="TextureButton" parent="Buttons" unique_id=1803689084]
 offset_left = 27.0
 offset_top = 221.00002
 offset_right = 101.0
 offset_bottom = 247.00002
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
-text = "quitter"
+
+[node name="ModeCoopNew" type="TextureButton" parent="Buttons" unique_id=721168597]
+offset_left = 28.0
+offset_top = 166.0
+offset_right = 68.0
+offset_bottom = 206.0
+texture_normal = ExtResource("5_043lm")
+texture_hover = ExtResource("6_iesyu")
 
 [node name="Title" type="Label" parent="." unique_id=1882164434]
 texture_filter = 1
@@ -157,7 +155,7 @@ stream = ExtResource("9_bc54p")
 
 [connection signal="pressed" from="Buttons/Demarrer" to="." method="_on_demarrer_pressed"]
 [connection signal="pressed" from="Buttons/Tuto" to="." method="_on_tuto_pressed"]
-[connection signal="pressed" from="Buttons/ModeCoop" to="." method="_on_mode_coop_pressed"]
 [connection signal="pressed" from="Buttons/Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="Buttons/ModeCoopNew" to="." method="_on_mode_coop_new_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowLeft" to="SkinSelector" method="_on_arrow_left_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowRight" to="SkinSelector" method="_on_arrow_right_pressed"]

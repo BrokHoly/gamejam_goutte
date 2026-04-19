@@ -88,4 +88,5 @@ stream = ExtResource("6_rjfd6")
 stream = ExtResource("7_1q56n")
 
 [node name="TranformLiquid" type="AudioStreamPlayer2D" parent="." unique_id=46457496]
+position = Vector2(1, 0)
 stream = ExtResource("8_rntgc")

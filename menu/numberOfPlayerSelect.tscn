@@ -2,12 +2,26 @@
 
 [ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="1_cmfrt"]
 [ext_resource type="Script" uid="uid://dkyw2m0nj2v2g" path="res://menu/number_of_player_select.gd" id="1_mhc8g"]
-[ext_resource type="Shader" path="res://menu/menu.gdshader" id="2_c45eh"]
+[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="2_c45eh"]
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="3_c45eh"]
 [ext_resource type="Texture2D" uid="uid://deekqwdkrkj2e" path="res://Assets/Sprites/MainCharacter/GoutteNoOutline.png" id="4_lbub1"]
 [ext_resource type="Texture2D" uid="uid://cbdpdwh5oreu7" path="res://Assets/UI/player2r.png" id="5_mhc8g"]
-[ext_resource type="Texture2D" uid="uid://cnlpqq8pexira" path="res://Assets/UI/buttonNormalt.png" id="6_34g2d"]
-[ext_resource type="Texture2D" uid="uid://drretbd3okwdc" path="res://Assets/UI/buttonPressedt.png" id="7_fh58b"]
+[ext_resource type="Texture2D" uid="uid://dpe0pn0n1uqdi" path="res://Assets/UI/BoutonsNew/Qtouch-export1.png" id="6_ybbqk"]
+[ext_resource type="Texture2D" uid="uid://d2k6j7krj0vjj" path="res://Assets/UI/BoutonsNew/Qtouch-export2.png" id="7_kkpjd"]
+[ext_resource type="Texture2D" uid="uid://da85fx27lpi34" path="res://Assets/UI/BoutonsNew/Ztouch-export1.png" id="8_bil0d"]
+[ext_resource type="Texture2D" uid="uid://cfuvewts4j62s" path="res://Assets/UI/BoutonsNew/Ztouch-export2.png" id="9_660s5"]
+[ext_resource type="Texture2D" uid="uid://8pvpqw2vd7ts" path="res://Assets/UI/BoutonsNew/Stouch-export1.png" id="10_bu3p2"]
+[ext_resource type="Texture2D" uid="uid://ck6k0x8qfwhvf" path="res://Assets/UI/BoutonsNew/Stouch-export2.png" id="11_j83wd"]
+[ext_resource type="Texture2D" uid="uid://cwr3k2tvlsbpn" path="res://Assets/UI/BoutonsNew/Dtouch-export1.png" id="12_gmues"]
+[ext_resource type="Texture2D" uid="uid://brsy8y2l8iefi" path="res://Assets/UI/BoutonsNew/Dtouch-export2.png" id="13_coskd"]
+[ext_resource type="Texture2D" uid="uid://dtuhskncc124w" path="res://Assets/UI/BoutonsNew/left-export1.png" id="15_q8yxs"]
+[ext_resource type="Texture2D" uid="uid://cvrs07ygcq0ha" path="res://Assets/UI/BoutonsNew/left-export2.png" id="16_n1q22"]
+[ext_resource type="Texture2D" uid="uid://bm2mpvyy7kw7c" path="res://Assets/UI/BoutonsNew/up-export1.png" id="17_ea5tm"]
+[ext_resource type="Texture2D" uid="uid://d2usawm3df4cq" path="res://Assets/UI/BoutonsNew/up-export2.png" id="18_cbfxt"]
+[ext_resource type="Texture2D" uid="uid://bwg3lqgnxd88v" path="res://Assets/UI/BoutonsNew/Down-export.png" id="19_mesk3"]
+[ext_resource type="Texture2D" uid="uid://b64cugdtf1txi" path="res://Assets/UI/BoutonsNew/Down-export2.png" id="20_8gyda"]
+[ext_resource type="Texture2D" uid="uid://cqh1rcqloty7j" path="res://Assets/UI/BoutonsNew/right-export1.png" id="21_whi4a"]
+[ext_resource type="Texture2D" uid="uid://7jio7d5t3oui" path="res://Assets/UI/BoutonsNew/right-export2.png" id="22_5wdb0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wd3j0"]
 shader = ExtResource("2_c45eh")
@@ -80,18 +94,8 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton" unique_id=1057956296]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 46.0
-offset_bottom = 25.0
-scale = Vector2(0.475, 0.475)
-theme = ExtResource("3_c45eh")
-text = "Q"
+texture_normal = ExtResource("6_ybbqk")
+texture_hover = ExtResource("7_kkpjd")
 
 [node name="TextureButton2" type="TextureButton" parent="Node2D/Player 1" unique_id=687947689]
 anchors_preset = 15
@@ -104,18 +108,8 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton2" unique_id=1731122169]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 46.0
-offset_bottom = 25.0
-scale = Vector2(0.475, 0.475)
-theme = ExtResource("3_c45eh")
-text = "z"
+texture_normal = ExtResource("8_bil0d")
+texture_hover = ExtResource("9_660s5")
 
 [node name="TextureButton4" type="TextureButton" parent="Node2D/Player 1" unique_id=939463955]
 anchors_preset = 15
@@ -128,18 +122,8 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton4" unique_id=1650086125]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 46.0
-offset_bottom = 25.0
-scale = Vector2(0.475, 0.475)
-theme = ExtResource("3_c45eh")
-text = "s"
+texture_normal = ExtResource("10_bu3p2")
+texture_hover = ExtResource("11_j83wd")
 
 [node name="TextureButton3" type="TextureButton" parent="Node2D/Player 1" unique_id=610585004]
 anchors_preset = 15
@@ -152,18 +136,8 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 1/TextureButton3" unique_id=1881578619]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 46.0
-offset_bottom = 25.0
-scale = Vector2(0.475, 0.475)
-theme = ExtResource("3_c45eh")
-text = "d"
+texture_normal = ExtResource("12_gmues")
+texture_hover = ExtResource("13_coskd")
 
 [node name="Player 2" type="Node2D" parent="Node2D" unique_id=2046916449]
 position = Vector2(69, 112)
@@ -200,17 +174,8 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton" unique_id=1910619928]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 46.0
-offset_bottom = 23.0
-scale = Vector2(0.57, 0.57)
-theme = ExtResource("3_c45eh")
-text = "←"
+texture_normal = ExtResource("15_q8yxs")
+texture_hover = ExtResource("16_n1q22")
 
 [node name="TextureButton2" type="TextureButton" parent="Node2D/Player 2" unique_id=15650493]
 anchors_preset = 15
@@ -223,17 +188,8 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton2" unique_id=1423376830]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 46.0
-offset_bottom = 23.0
-scale = Vector2(0.57, 0.57)
-theme = ExtResource("3_c45eh")
-text = "↑"
+texture_normal = ExtResource("17_ea5tm")
+texture_hover = ExtResource("18_cbfxt")
 
 [node name="TextureButton4" type="TextureButton" parent="Node2D/Player 2" unique_id=1327355143]
 anchors_preset = 15
@@ -246,17 +202,8 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton4" unique_id=1867318599]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 46.0
-offset_bottom = 23.0
-scale = Vector2(0.57, 0.57)
-theme = ExtResource("3_c45eh")
-text = "↓"
+texture_normal = ExtResource("19_mesk3")
+texture_hover = ExtResource("20_8gyda")
 
 [node name="TextureButton3" type="TextureButton" parent="Node2D/Player 2" unique_id=1657344134]
 anchors_preset = 15
@@ -269,16 +216,7 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_34g2d")
-texture_hover = ExtResource("7_fh58b")
-
-[node name="Label" type="Label" parent="Node2D/Player 2/TextureButton3" unique_id=1553884058]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 46.0
-offset_bottom = 23.0
-scale = Vector2(0.57, 0.57)
-theme = ExtResource("3_c45eh")
-text = "→"
+texture_normal = ExtResource("21_whi4a")
+texture_hover = ExtResource("22_5wdb0")
 
 [connection signal="pressed" from="Demarrer" to="." method="_on_demarrer_pressed"]
