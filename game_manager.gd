@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 	if (start_score):
 		score += 1
 		if(coop):
-		scoreP2 +=1
+			scoreP2 +=1
 	
 	
 
