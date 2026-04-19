@@ -5,8 +5,6 @@ var left_anchor : Marker2D
 var right_anchor : Marker2D 
 
 
-
-
 var OBSTACLES_SPEED: float = 70.0
 const TIME_BETWEEN_OBSTACLES = 1.0
 const TIME_RANGE = 1.0
@@ -17,7 +15,6 @@ var right_strike := 0.0
 var left_strike := 0.0
 
 var LEFT_OBSTACLES_SCENES : Array[Node2D]
-
 var RIGHT_OBSTACLES_SCENES : Array[Node2D] 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,24 +23,20 @@ func _ready() -> void:
 	left_anchor = $ObstacleSpawner/LeftAnchor
 	right_anchor = $ObstacleSpawner/RightAnchor
 	
-	
 	RIGHT_OBSTACLES_SCENES = [
-		load("res://props/leftleaf.tscn").instantiate()
+		load("res://props/leaf_right.tscn").instantiate(),
+		load("res://props/web_right.tscn").instantiate(),
 	]
 	LEFT_OBSTACLES_SCENES = [
-		load("res://props/leftleaf.tscn").instantiate()
+		load("res://props/leaf_left.tscn").instantiate(),
+		load("res://props/web_left.tscn").instantiate(),
 	]
 	# Instanciate Obstacles
 	GameManager.start_score = true
-	
-	pass # Replace with function body.
-
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
-	
 	time_until_next_obstacle -= delta
 	
 	if time_until_next_obstacle < 0.0:
@@ -54,7 +47,6 @@ func _process(delta: float) -> void:
 		else:
 			spawn_left_obstacle()
 		time_until_next_obstacle = TIME_BETWEEN_OBSTACLES + randf() * TIME_RANGE
-	
 
 
 func spawn_left_obstacle():
@@ -72,7 +64,7 @@ func spawn_right_obstacle():
 	spawner.add_child(obstacle)
 	obstacle.speed = OBSTACLES_SPEED
 	obstacle.position = right_anchor.position
-	var sprite2D: Sprite2D = obstacle.get_node("Sprite2D")
-	sprite2D.flip_h = true;
+	#var sprite2D: Sprite2D = obstacle.get_node("Sprite2D")
+	#sprite2D.flip_h = true;
 	right_strike += 1.0
 	left_strike = 0.0

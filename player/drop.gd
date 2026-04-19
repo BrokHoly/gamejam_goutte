@@ -5,21 +5,47 @@ const DOWN_SPEED: float = 20.0
 
 enum STATES {LIQUID, ICE, SNOW}
 var LIQUID_SKIN : Resource
-var ICE_SKIN = load("res://Assets/Sprites/MainCharacter/grele.png")
-var SNOW_SKIN = load("res://Assets/Sprites/MainCharacter/flocon.png")
+
+var LIQUID_SPRITE: Sprite2D
+var ICE_SPRITE: Sprite2D
+var SNOW_SPRITE: Sprite2D
+
+var LIQUID_SHAPE: CollisionShape2D
+var ICE_SHAPE: CollisionShape2D
+var SNOW_SHAPE: CollisionShape2D
+
+const LIQUID_PARTICLES : Color = Color("4995f3")
+const ICE_PARTICLES : Color = Color("8d9bc7cd")
+const SNOW_PARTICLES : Color = Color("dfecfeff")
+
+var DROP_PARTICULES: CPUParticles2D
 
 var state = STATES.LIQUID
+
 var sprite : Sprite2D
 
 
 func _ready() -> void:
 	LIQUID_SKIN = GameManager.playerSkin
-
 	
-	sprite = $Sprite2D
-	sprite.texture = LIQUID_SKIN
+	LIQUID_SHAPE = $LiquidCollision
+	LIQUID_SHAPE = $IceCollision
+	LIQUID_SHAPE = $SnowCollision
+	
+	LIQUID_SPRITE = $LiquidSprite
+	ICE_SPRITE = $IceSprite
+	SNOW_SPRITE = $SnowSprite
+	
+	LIQUID_SPRITE.texture = LIQUID_SKIN
+	
+	LIQUID_SPRITE.show()
+	ICE_SPRITE.hide()
+	SNOW_SPRITE.hide()
+	sprite = LIQUID_SPRITE
+	
+	DROP_PARTICULES = $DropParticules
+	
 	GameManager.health_changed.connect(take_damage)
-
 
 
 func _physics_process(delta: float) -> void:
@@ -27,8 +53,7 @@ func _physics_process(delta: float) -> void:
 	_handle_inputs()
 	
 func _process(delta: float) -> void:
-	if(state == STATES.SNOW):
-		rotation += 0.05
+	SNOW_SPRITE.rotation += 0.05
 
 
 
@@ -40,7 +65,7 @@ func take_damage(amount : int):
 		var initial_color: Color = sprite.modulate;
 		var initial_scale: Vector2 = scale
 		
-		$Splash.emitting = true
+		$SplashParticules.emitting = true
 		tweenRed.tween_property(sprite, "modulate", Color.RED, 0.25)
 		tweenScale.tween_property(sprite, "scale", Vector2(1.25,1.25), 0.25)
 
@@ -80,20 +105,42 @@ func _handle_inputs():
 
 func _toggle_ice():
 	if state == STATES.ICE:
-		state = STATES.LIQUID
-		sprite.texture = LIQUID_SKIN
+		activate_liquid()
 	else:
 		state = STATES.ICE
-		sprite.texture = ICE_SKIN
+		sprite = ICE_SPRITE
+		ICE_SPRITE.show()
+		LIQUID_SPRITE.hide()
+		SNOW_SPRITE.hide()
+		# Shapes
+		ICE_SPRITE.visible = true
+		LIQUID_SHAPE.visible = false
+		SNOW_SPRITE.visible = false
+		
 
 func _toggle_snow():
 	if state == STATES.SNOW:
-		state = STATES.LIQUID
-		sprite.texture = LIQUID_SKIN
+		activate_liquid()
 	else:
 		state = STATES.SNOW
-		sprite.texture = SNOW_SKIN
+		SNOW_SPRITE.show()
+		ICE_SPRITE.hide()
+		LIQUID_SPRITE.hide()
+		# Shapes
+		SNOW_SPRITE.visible = true
+		LIQUID_SHAPE.visible = false
+		ICE_SPRITE.visible = false
 
+func activate_liquid():
+	state = STATES.LIQUID
+	sprite = LIQUID_SPRITE
+	LIQUID_SPRITE.show()
+	ICE_SPRITE.hide()
+	SNOW_SPRITE.hide()
+	# Shapes
+	LIQUID_SHAPE.visible = true
+	ICE_SPRITE.visible = false
+	SNOW_SPRITE.visible = false
 
 func is_liquid() -> bool : 
 	return state == STATES.LIQUID
@@ -103,3 +150,7 @@ func is_snow() -> bool :
 
 func is_ice() -> bool : 
 	return state == STATES.ICE
+
+
+func color_transition(color: Color):
+	DROP_PARTICULES.color.lerp(color,1.0)

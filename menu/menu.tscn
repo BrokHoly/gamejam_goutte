@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://krkjwramlpdk" path="res://Assets/UI/ArrowLeftHovert.png" id="5_juveg"]
 [ext_resource type="Texture2D" uid="uid://dgmc1d5w3p1es" path="res://Assets/UI/locked.png" id="6_6fswf"]
 [ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="7_v6yed"]
-[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="9_6fswf"]
+[ext_resource type="Shader" path="res://menu/menu.gdshader" id="9_6fswf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bc54p"]
 shader = ExtResource("9_6fswf")

@@ -2,13 +2,34 @@
 
 [ext_resource type="Script" uid="uid://noojycw5qyn6" path="res://player/drop.gd" id="1_f4jv2"]
 [ext_resource type="Texture2D" uid="uid://dt5cg8mfwg2m5" path="res://Assets/FX/particle.png" id="2_4atf0"]
+[ext_resource type="Texture2D" uid="uid://deekqwdkrkj2e" path="res://Assets/Sprites/MainCharacter/GoutteNoOutline.png" id="3_ipc8g"]
+[ext_resource type="Texture2D" uid="uid://bh6fbvq5567jd" path="res://Assets/Sprites/MainCharacter/grele.png" id="4_wycpn"]
+[ext_resource type="Texture2D" uid="uid://b4gtoomk3cw5u" path="res://Assets/FX/particle_snow.png" id="6_8oc23"]
+[ext_resource type="Texture2D" uid="uid://ypcxnw2e8hci" path="res://Assets/Sprites/MainCharacter/flocon.png" id="7_spdk8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4atf0"]
-radius = 3.5
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spdk8"]
+size = Vector2(7, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_spdk8"]
+radius = 4.5
 
 [node name="Drop" type="CharacterBody2D" unique_id=522632408 groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_f4jv2")
+
+[node name="LiquidCollision" type="CollisionShape2D" parent="." unique_id=1879730674]
+shape = SubResource("CircleShape2D_4atf0")
+
+[node name="IceCollision" type="CollisionShape2D" parent="." unique_id=1767547155]
+visible = false
+shape = SubResource("RectangleShape2D_spdk8")
+
+[node name="SnowCollision" type="CollisionShape2D" parent="." unique_id=1672877451]
+visible = false
+shape = SubResource("CircleShape2D_spdk8")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=343669229]
 visible = false
@@ -17,18 +38,26 @@ amount = 10
 texture = ExtResource("2_4atf0")
 lifetime = 0.9
 speed_scale = 0.6
-randomness = 0.3
+use_fixed_seed = true
+seed = 2685823305
 emission_shape = 1
 emission_sphere_radius = 1.0
 gravity = Vector2(0, -200)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1376008568]
-position = Vector2(0, -1)
+[node name="DropParticules" type="CPUParticles2D" parent="." unique_id=91794546]
+position = Vector2(0, -5)
+amount = 10
+texture = ExtResource("6_8oc23")
+lifetime = 0.9
+speed_scale = 0.6
+use_fixed_seed = true
+seed = 2685823305
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2(0, -200)
+color = Color(0.28627452, 0.58431375, 0.9529412, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879730674]
-shape = SubResource("CircleShape2D_4atf0")
-
-[node name="Splash" type="CPUParticles2D" parent="." unique_id=382399921]
+[node name="SplashParticules" type="CPUParticles2D" parent="." unique_id=382399921]
 position = Vector2(0, -1)
 emitting = false
 texture = ExtResource("2_4atf0")
@@ -38,3 +67,15 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 29.7
 initial_velocity_max = 89.11
+
+[node name="LiquidSprite" type="Sprite2D" parent="." unique_id=1376008568]
+position = Vector2(0, -1)
+texture = ExtResource("3_ipc8g")
+
+[node name="IceSprite" type="Sprite2D" parent="." unique_id=787494391]
+visible = false
+texture = ExtResource("4_wycpn")
+
+[node name="SnowSprite" type="Sprite2D" parent="." unique_id=1690697474]
+visible = false
+texture = ExtResource("7_spdk8")

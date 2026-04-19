@@ -22,8 +22,8 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 			GameManager.score += 100
 			#TODO make an animation or something
 			pass
-		if body.is_liquid() and is_in_group("travesable"):
-			GameManager.scre += 100
+		elif body.is_liquid() and is_in_group("traversable"):
+			GameManager.score += 100
 			#TODO make an animation or something
 			pass 
 		else :
