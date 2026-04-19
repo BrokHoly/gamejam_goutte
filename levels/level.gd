@@ -5,12 +5,18 @@ var left_anchor : Marker2D
 var right_anchor : Marker2D 
 
 
-var OBSTACLES_SPEED: float = 70.0
+var obstacles_speed: float = 60.0
+const OBSTACLES_MIN_SPEED: float = 60.0
+const OBSTACLES_MAX_SPEED: float = 100.0
+
+const SCORE_UNTIL_MAX_SPEED:int = 10000
+
 const TIME_BETWEEN_OBSTACLES = 1.0
 const TIME_RANGE = 1.0
 
 
-var time_until_next_obstacle := 0.0
+var time_until_next_left_obstacle := 100.0
+var time_until_next_right_obstacle := 100.0
 var right_strike := 0.0
 var left_strike := 0.0
 
@@ -35,27 +41,34 @@ func _ready() -> void:
 	]
 	# Instanciate Obstacles
 	GameManager.start_score = true
-
+	var first_right = randf() > 0.5
+	if first_right:
+		time_until_next_right_obstacle = 0.0
+		time_until_next_left_obstacle = TIME_BETWEEN_OBSTACLES/2 + randf() * TIME_RANGE
+	else :
+		time_until_next_left_obstacle = 0.0
+		time_until_next_right_obstacle = TIME_BETWEEN_OBSTACLES/2 + randf() * TIME_RANGE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
-	time_until_next_obstacle -= delta
+	time_until_next_left_obstacle -= delta
+	time_until_next_right_obstacle -= delta
 	
-	if time_until_next_obstacle < 0.0:
+	if time_until_next_right_obstacle < 0.0:
+		spawn_right_obstacle()
+		time_until_next_right_obstacle = TIME_BETWEEN_OBSTACLES + randf() * TIME_RANGE
 		#print("LeftStrike: ", left_strike, " RightStrike: ", right_strike)
-		var go_right = randfn(-(right_strike/10.0)+(left_strike/10.0),1.0) > 0.0
-		if go_right:
-			spawn_right_obstacle()
-		else:
-			spawn_left_obstacle()
-		time_until_next_obstacle = TIME_BETWEEN_OBSTACLES + randf() * TIME_RANGE
+		#var go_right = randfn(-(right_strike/10.0)+(left_strike/10.0),1.0) > 0.0
+	if time_until_next_left_obstacle < 0.0:
+		spawn_left_obstacle()
+		time_until_next_left_obstacle = TIME_BETWEEN_OBSTACLES + randf() * TIME_RANGE
 
 
 func spawn_left_obstacle():
 	var next_obstacle : Node2D = LEFT_OBSTACLES_SCENES[randi_range(0,LEFT_OBSTACLES_SCENES.size()-1)]
 	var obstacle : Node2D = next_obstacle.duplicate()
 	spawner.add_child(obstacle)
-	obstacle.speed = OBSTACLES_SPEED
+	obstacle.speed = obstacles_speed
 	obstacle.position = left_anchor.position
 	left_strike += 1.0
 	right_strike = 0.0
@@ -64,7 +77,7 @@ func spawn_right_obstacle():
 	var next_obstacle : Node2D = RIGHT_OBSTACLES_SCENES[randi_range(0,RIGHT_OBSTACLES_SCENES.size()-1)]
 	var obstacle : Node2D = next_obstacle.duplicate()
 	spawner.add_child(obstacle)
-	obstacle.speed = OBSTACLES_SPEED
+	obstacle.speed = obstacles_speed
 	obstacle.position = right_anchor.position
 	#var sprite2D: Sprite2D = obstacle.get_node("Sprite2D")
 	#sprite2D.flip_h = true;

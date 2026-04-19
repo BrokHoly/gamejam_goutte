@@ -176,6 +176,5 @@ func is_ice() -> bool :
 
 
 func color_transition(baseColor: Color, targetColor:Color, amout: float):
-	print(baseColor)
 	DROP_PARTICULES.color = baseColor.lerp(targetColor,amout)
 	SPLASH_PARTICULES.color = baseColor.lerp(targetColor,amout)
