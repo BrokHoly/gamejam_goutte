@@ -26,10 +26,12 @@ func _ready() -> void:
 	RIGHT_OBSTACLES_SCENES = [
 		load("res://props/leaf_right.tscn").instantiate(),
 		load("res://props/web_right.tscn").instantiate(),
+		load("res://props/branch_right.tscn").instantiate(),
 	]
 	LEFT_OBSTACLES_SCENES = [
 		load("res://props/leaf_left.tscn").instantiate(),
 		load("res://props/web_left.tscn").instantiate(),
+		load("res://props/branch_left.tscn").instantiate(),
 	]
 	# Instanciate Obstacles
 	GameManager.start_score = true
