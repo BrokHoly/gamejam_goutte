@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="1_cmfrt"]
 [ext_resource type="Script" uid="uid://dkyw2m0nj2v2g" path="res://menu/number_of_player_select.gd" id="1_mhc8g"]
-[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="2_c45eh"]
+[ext_resource type="Shader" path="res://menu/menu.gdshader" id="2_c45eh"]
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="3_c45eh"]
 [ext_resource type="Texture2D" uid="uid://deekqwdkrkj2e" path="res://Assets/Sprites/MainCharacter/GoutteNoOutline.png" id="4_lbub1"]
 [ext_resource type="Texture2D" uid="uid://cbdpdwh5oreu7" path="res://Assets/UI/player2r.png" id="5_mhc8g"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ibo6k77nky6k"]
+[gd_scene format=3 uid="uid://bdqjx8d1535uc"]
 
 [ext_resource type="Script" uid="uid://c7u1rj122slrl" path="res://props/obstacle.gd" id="1_vhxj6"]
 [ext_resource type="Texture2D" uid="uid://b21tk523htxr7" path="res://Assets/Sprites/Obstacles/ObstacleNoOutline_crop.png" id="2_qrxu5"]
@@ -19,7 +19,7 @@ collision_mask = 7
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" unique_id=1976960263]
 polygon = PackedVector2Array(0, 13, 55, 5, 43, -8, 0, -12)
 
-[node name="SpawnBox" type="Area2D" parent="." unique_id=469021438]
+[node name="SpawnBox" type="Area2D" parent="." unique_id=469021438 groups=["breakable"]]
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBox" unique_id=1249774553]

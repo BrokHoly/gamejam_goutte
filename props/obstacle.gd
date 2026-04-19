@@ -16,10 +16,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var areas = $SpawnBox.get_overlapping_areas()
+	for area in areas:
+		if area.is_in_group("invincible") :
+			print("TUE MOI ÇA")
+			queue_free()
 	if position.y < -30.0:
 		queue_free()
 	position.y -= speed * delta
-	pass
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
@@ -58,6 +62,10 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 func _on_spawn_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("invincible") and is_in_group("invincible"):
 		# In taht case, we should stop the belower until it's out of range. 
+		print("OMG 2 BRANCHES ???")
+		var is_above = position.y > area.position.y
+		if not is_above:
+			queue_free()
 		pass
 		
 	pass # Replace with function body.

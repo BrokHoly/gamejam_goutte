@@ -19,7 +19,7 @@ size = Vector2(7, 7)
 [sub_resource type="CircleShape2D" id="CircleShape2D_spdk8"]
 radius = 4.5
 
-[node name="Drop" type="CharacterBody2D" unique_id=522632408 groups=["player"]]
+[node name="Drop" type="CharacterBody2D" unique_id=522632408 groups=["Player1", "player"]]
 motion_mode = 1
 script = ExtResource("1_f4jv2")
 

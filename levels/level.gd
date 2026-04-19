@@ -4,21 +4,23 @@ var spawner : Node2D
 var left_anchor : Marker2D 
 var right_anchor : Marker2D 
 
-
-var obstacles_speed: float = 60.0
+var current_obstacles_speed: float
 const OBSTACLES_MIN_SPEED: float = 60.0
-const OBSTACLES_MAX_SPEED: float = 100.0
+const OBSTACLES_MAX_SPEED: float = 120.0
 
 const SCORE_UNTIL_MAX_SPEED:int = 10000
 
-const TIME_BETWEEN_OBSTACLES = 1.0
+const BEGIN_TIME_BETWEEN_OBSTACLES = 2.0
+const END_TIME_BETWEEN_OBSTACLES = 2.0
+
+const TIME_BETWEEN_OBSTACLES = 2.0
 const TIME_RANGE = 1.0
 
 
 var time_until_next_left_obstacle := 100.0
 var time_until_next_right_obstacle := 100.0
-var right_strike := 0.0
-var left_strike := 0.0
+#var right_strike := 0.0
+#var left_strike := 0.0
 
 var LEFT_OBSTACLES_SCENES : Array[Node2D]
 var RIGHT_OBSTACLES_SCENES : Array[Node2D] 
@@ -54,6 +56,8 @@ func _process(delta: float) -> void:
 	time_until_next_left_obstacle -= delta
 	time_until_next_right_obstacle -= delta
 	
+	current_obstacles_speed = minf(OBSTACLES_MIN_SPEED + ((float(GameManager.score) / SCORE_UNTIL_MAX_SPEED) * (OBSTACLES_MAX_SPEED - OBSTACLES_MIN_SPEED)),OBSTACLES_MAX_SPEED)
+	#print(current_obstacles_speed)
 	if time_until_next_right_obstacle < 0.0:
 		spawn_right_obstacle()
 		time_until_next_right_obstacle = TIME_BETWEEN_OBSTACLES + randf() * TIME_RANGE
@@ -68,18 +72,18 @@ func spawn_left_obstacle():
 	var next_obstacle : Node2D = LEFT_OBSTACLES_SCENES[randi_range(0,LEFT_OBSTACLES_SCENES.size()-1)]
 	var obstacle : Node2D = next_obstacle.duplicate()
 	spawner.add_child(obstacle)
-	obstacle.speed = obstacles_speed
+	obstacle.speed = current_obstacles_speed
 	obstacle.position = left_anchor.position
-	left_strike += 1.0
-	right_strike = 0.0
+	#left_strike += 1.0
+	#right_strike = 0.0
 
 func spawn_right_obstacle():
 	var next_obstacle : Node2D = RIGHT_OBSTACLES_SCENES[randi_range(0,RIGHT_OBSTACLES_SCENES.size()-1)]
 	var obstacle : Node2D = next_obstacle.duplicate()
 	spawner.add_child(obstacle)
-	obstacle.speed = obstacles_speed
+	obstacle.speed = current_obstacles_speed
 	obstacle.position = right_anchor.position
 	#var sprite2D: Sprite2D = obstacle.get_node("Sprite2D")
 	#sprite2D.flip_h = true;
-	right_strike += 1.0
-	left_strike = 0.0
+	#right_strike += 1.0
+	#left_strike = 0.0

@@ -19,7 +19,7 @@ collision_mask = 7
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" unique_id=1976960263]
 polygon = PackedVector2Array(-8, -2, 35, 8, 48, -9, 23, -1)
 
-[node name="SpawnBox" type="Area2D" parent="." unique_id=469021438]
+[node name="SpawnBox" type="Area2D" parent="." unique_id=469021438 groups=["invincible"]]
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBox" unique_id=1249774553]
