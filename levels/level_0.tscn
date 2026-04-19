@@ -85,6 +85,16 @@ theme = ExtResource("4_yi3jx")
 text = "10"
 script = ExtResource("5_7d3si")
 
+[node name="Score++" type="Label" parent="." unique_id=2010038325]
+offset_left = 57.999992
+offset_top = 5.9999995
+offset_right = 97.99999
+offset_bottom = 29.0
+rotation = 0.41015238
+scale = Vector2(0.185, 0.185)
+theme = ExtResource("4_yi3jx")
+text = "+100"
+
 [node name="TextureRect" parent="." unique_id=204977200 groups=["Player1"] instance=ExtResource("5_foxie")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=925069740]

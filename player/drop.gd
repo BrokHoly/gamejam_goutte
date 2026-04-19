@@ -115,7 +115,9 @@ func _handle_inputs():
 func _toggle_ice():
 	if state == STATES.ICE:
 		activate_liquid()
+		
 	else:
+		$TransformIce.play()
 		baseColor = targetColor
 		targetColor = ICE_COLOR
 		transition_amout = 0.0
@@ -133,7 +135,9 @@ func _toggle_ice():
 func _toggle_snow():
 	if state == STATES.SNOW:
 		activate_liquid()
+		
 	else:
+		$TransformSnow.play()
 		baseColor = targetColor
 		targetColor = SNOW_COLOR
 		transition_amout = 0.0
@@ -147,6 +151,7 @@ func _toggle_snow():
 		ICE_SPRITE.visible = false
 
 func activate_liquid():
+	$TranformLiquid.play()
 	baseColor = targetColor
 	targetColor = LIQUID_COLOR
 	transition_amout = 0.0

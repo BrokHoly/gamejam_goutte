@@ -11,6 +11,9 @@ signal health_depleted()
 signal health_depletedP2()
 signal highest_score_changed()
 
+signal score_boost(amount : int)
+
+
 
 const highest_score_str: String = "highest_score"
 var highest_score : int = load_highest_score()

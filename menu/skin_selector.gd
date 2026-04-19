@@ -41,11 +41,13 @@ func _process(delta: float) -> void:
 
 
 func _on_arrow_left_pressed() -> void:
+	$"../AudioStreamPlayer2D".play()
 	if selected -1 >= 0:
 		selected -= 1
 
 
 func _on_arrow_right_pressed() -> void:
+	$"../AudioStreamPlayer2D".play()
 	if not(selected + 1 > skin_list.size()-1):
 		selected += 1
 	
