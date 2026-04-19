@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dtrmrme76xjwm"]
+
+[ext_resource type="Script" uid="uid://c7u1rj122slrl" path="res://props/obstacle.gd" id="1_yrx8f"]
+[ext_resource type="Texture2D" uid="uid://cnh4euayih0ht" path="res://Assets/Sprites/Obstacles/branche.png" id="2_3tdr5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejvbk"]
+radius = 33.01515
+
+[node name="Branch" type="Node2D" unique_id=1839930798 groups=["invincible"]]
+script = ExtResource("1_yrx8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=751662357]
+position = Vector2(-23.5, 0)
+texture = ExtResource("2_3tdr5")
+flip_h = true
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1423714142]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" unique_id=1976960263]
+polygon = PackedVector2Array(8, -2, -35, 8, -48, -9, -23, -1)
+
+[node name="SpawnBox" type="Area2D" parent="." unique_id=469021438]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBox" unique_id=1249774553]
+position = Vector2(-24, 0)
+shape = SubResource("CircleShape2D_ejvbk")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="area_entered" from="SpawnBox" to="." method="_on_spawn_box_area_entered"]
