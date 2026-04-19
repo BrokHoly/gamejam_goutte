@@ -82,7 +82,7 @@ offset_right = 131.0
 offset_bottom = 29.0
 scale = Vector2(0.63, 0.63)
 theme = ExtResource("1_j0t7f")
-text = "Goutte de la pisse"
+text = "La goutte de trop"
 
 [node name="HighestScore" type="Label" parent="." unique_id=73123633]
 texture_filter = 1
