@@ -36,3 +36,8 @@ func _on_mode_coop_pressed() -> void:
 	GameManager.coop = true
 	GameManager.playerSkin = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 	get_tree().change_scene_to_file("res://menu/numberOfPlayerSelect.tscn")
+
+
+func _on_tuto_pressed() -> void:
+	GameManager.playerSkin = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
+	get_tree().change_scene_to_file("res://levels/tuto.tscn")

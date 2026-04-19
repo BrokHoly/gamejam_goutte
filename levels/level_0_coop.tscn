@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="2_pk6kn"]
 [ext_resource type="Texture2D" uid="uid://bm6qc8fjjp7xt" path="res://Assets/FX/particle2Square.png" id="3_1figq"]
 [ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="4_myyap"]
+[ext_resource type="Texture2D" uid="uid://ulvp1kep4aoy" path="res://Assets/FX/particuleRed.png" id="5_75xia"]
 [ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="5_wkek1"]
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="6_b003m"]
 [ext_resource type="PackedScene" uid="uid://dwp0714qo2rn2" path="res://player/dropP2.tscn" id="6_pk6kn"]
@@ -43,7 +44,7 @@ texture = ExtResource("2_pk6kn")
 
 [node name="Pluies" type="CPUParticles2D" parent="." unique_id=1301644836]
 position = Vector2(46.595, -25)
-amount = 117
+amount = 58
 texture = ExtResource("3_1figq")
 lifetime = 2.0
 preprocess = 2.67
@@ -62,12 +63,35 @@ offset_right = 45.405
 offset_bottom = 220.0
 texture = SubResource("PlaceholderTexture2D_dm5o4")
 
+[node name="Pluies2" type="CPUParticles2D" parent="." unique_id=919161244]
+position = Vector2(46.595, -25)
+amount = 58
+texture = ExtResource("5_75xia")
+lifetime = 2.0
+preprocess = 2.67
+speed_scale = 0.15
+randomness = 0.26
+emission_shape = 3
+emission_rect_extents = Vector2(49.64, 5.485)
+gravity = Vector2(0, 250)
+
+[node name="Blur" type="TextureRect" parent="Pluies2" unique_id=1068961237]
+visible = false
+material = SubResource("ShaderMaterial_tfamw")
+offset_left = -46.595
+offset_top = -36.0
+offset_right = 45.405
+offset_bottom = 220.0
+texture = SubResource("PlaceholderTexture2D_dm5o4")
+
 [node name="DropP1" parent="." unique_id=1116228112 groups=["Player1"] instance=ExtResource("5_wkek1")]
 position = Vector2(23, 75)
+collision_layer = 2
 platform_wall_layers = 255
 
 [node name="DropP2" parent="." unique_id=522632408 groups=["Player2"] instance=ExtResource("6_pk6kn")]
 position = Vector2(65, 75)
+collision_layer = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=135998944]
 anchor_mode = 0

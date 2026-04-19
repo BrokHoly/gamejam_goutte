@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dtrmrme76xjwm"]
+[gd_scene format=3 uid="uid://g1odixkxomiv"]
 
 [ext_resource type="Script" uid="uid://c7u1rj122slrl" path="res://props/obstacle.gd" id="1_yrx8f"]
 [ext_resource type="Texture2D" uid="uid://cnh4euayih0ht" path="res://Assets/Sprites/Obstacles/branche.png" id="2_3tdr5"]
@@ -15,11 +15,13 @@ texture = ExtResource("2_3tdr5")
 flip_h = true
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1423714142]
+collision_mask = 7
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" unique_id=1976960263]
 polygon = PackedVector2Array(8, -2, -35, 8, -48, -9, -23, -1)
 
 [node name="SpawnBox" type="Area2D" parent="." unique_id=469021438]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBox" unique_id=1249774553]
 position = Vector2(-24, 0)

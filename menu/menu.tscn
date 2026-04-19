@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vvutqnn7hqvw" path="res://Assets/UI/ArrowLeft.png" id="3_svuvw"]
 [ext_resource type="Texture2D" uid="uid://krkjwramlpdk" path="res://Assets/UI/ArrowLeftHovert.png" id="5_juveg"]
 [ext_resource type="Texture2D" uid="uid://dgmc1d5w3p1es" path="res://Assets/UI/locked.png" id="6_6fswf"]
-[ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="7_v6yed"]
-[ext_resource type="Shader" path="res://menu/menu.gdshader" id="9_6fswf"]
+[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="9_6fswf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bc54p"]
 shader = ExtResource("9_6fswf")
@@ -43,32 +42,14 @@ scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
 text = "démarrer"
 
-[node name="Debug" type="Button" parent="Buttons" unique_id=280505654]
-offset_left = 3.0
-offset_top = 144.0
-offset_right = 78.0
-offset_bottom = 170.0
-scale = Vector2(0.555, 0.555)
-theme = ExtResource("1_j0t7f")
-text = "Save save"
-
-[node name="LoadSave" type="Button" parent="Buttons" unique_id=96367557]
-offset_left = 48.0
-offset_top = 144.0
-offset_right = 123.0
-offset_bottom = 170.0
-scale = Vector2(0.555, 0.555)
-theme = ExtResource("1_j0t7f")
-text = "load save"
-
-[node name="Credits" type="Button" parent="Buttons" unique_id=953472550]
+[node name="Tuto" type="Button" parent="Buttons" unique_id=953472550]
 offset_left = 27.0
 offset_top = 203.00002
 offset_right = 101.0
 offset_bottom = 229.00002
 scale = Vector2(0.555, 0.555)
 theme = ExtResource("1_j0t7f")
-text = "Credits"
+text = "Tutoriel"
 
 [node name="ModeCoop" type="Button" parent="Buttons" unique_id=2021498822]
 offset_left = 26.0
@@ -170,14 +151,8 @@ flip_h = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1267309387]
 anchor_mode = 0
 
-[node name="GoutteHP" parent="." unique_id=204977200 instance=ExtResource("7_v6yed")]
-texture_filter = 1
-offset_top = 15.0
-offset_bottom = 31.0
-
 [connection signal="pressed" from="Buttons/Demarrer" to="." method="_on_demarrer_pressed"]
-[connection signal="pressed" from="Buttons/Debug" to="." method="_on_debug_pressed"]
-[connection signal="pressed" from="Buttons/LoadSave" to="." method="_on_load_save_pressed"]
+[connection signal="pressed" from="Buttons/Tuto" to="." method="_on_tuto_pressed"]
 [connection signal="pressed" from="Buttons/ModeCoop" to="." method="_on_mode_coop_pressed"]
 [connection signal="pressed" from="Buttons/Quitter" to="." method="_on_quitter_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowLeft" to="SkinSelector" method="_on_arrow_left_pressed"]

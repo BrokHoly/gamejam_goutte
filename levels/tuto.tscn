@@ -1,0 +1,264 @@
+[gd_scene format=3 uid="uid://p848jyv4onw7"]
+
+[ext_resource type="Script" uid="uid://dgcafqukaoyo7" path="res://levels/level.gd" id="1_ucllj"]
+[ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="2_qjruy"]
+[ext_resource type="Texture2D" uid="uid://bm6qc8fjjp7xt" path="res://Assets/FX/particle2Square.png" id="3_ok7tb"]
+[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="4_yg4m7"]
+[ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="5_ol64d"]
+[ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="6_bkxiq"]
+[ext_resource type="Script" uid="uid://q08yasbnha2s" path="res://levels/update_score.gd" id="7_1ldb1"]
+[ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="8_jcf5h"]
+[ext_resource type="Texture2D" uid="uid://c5s7by5xinu6i" path="res://Assets/UI/arrow.png" id="9_qjruy"]
+[ext_resource type="Texture2D" uid="uid://ypcxnw2e8hci" path="res://Assets/Sprites/MainCharacter/flocon.png" id="10_ol64d"]
+[ext_resource type="Texture2D" uid="uid://cnlpqq8pexira" path="res://Assets/UI/buttonNormalt.png" id="11_bkxiq"]
+[ext_resource type="Texture2D" uid="uid://bh6fbvq5567jd" path="res://Assets/Sprites/MainCharacter/grele.png" id="12_1ldb1"]
+[ext_resource type="Script" uid="uid://ul7r7hdwm1c6" path="res://levels/tuto.gd" id="13_bkxiq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfamw"]
+shader = ExtResource("4_yg4m7")
+shader_parameter/blur_amount = 1.4730000699675
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dm5o4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4pne"]
+size = Vector2(114, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfamw"]
+size = Vector2(197, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm5o4"]
+size = Vector2(92, 39)
+
+[node name="Level0" type="Node2D" unique_id=1454019866]
+script = ExtResource("1_ucllj")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1455350834]
+repeat_size = Vector2(0, 256)
+autoscroll = Vector2(0, -5)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1537877102]
+position = Vector2(46, 128)
+texture = ExtResource("2_qjruy")
+
+[node name="Pluies" type="CPUParticles2D" parent="." unique_id=1301644836]
+position = Vector2(46.595, -25)
+amount = 117
+texture = ExtResource("3_ok7tb")
+lifetime = 2.0
+preprocess = 2.67
+speed_scale = 0.15
+randomness = 0.26
+emission_shape = 3
+emission_rect_extents = Vector2(49.64, 5.485)
+gravity = Vector2(0, 250)
+
+[node name="Blur" type="TextureRect" parent="Pluies" unique_id=1734371517]
+visible = false
+material = SubResource("ShaderMaterial_tfamw")
+offset_left = -46.595
+offset_top = -36.0
+offset_right = 45.405
+offset_bottom = 220.0
+texture = SubResource("PlaceholderTexture2D_dm5o4")
+
+[node name="Drop" parent="." unique_id=1116228112 groups=["Player1"] instance=ExtResource("5_ol64d")]
+process_mode = 4
+position = Vector2(45, 76)
+platform_wall_layers = 255
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=135998944]
+anchor_mode = 0
+
+[node name="ObstacleSpawner" type="Node2D" parent="." unique_id=1747579586]
+process_mode = 4
+
+[node name="LeftAnchor" type="Marker2D" parent="ObstacleSpawner" unique_id=1932542347]
+position = Vector2(0, 269)
+
+[node name="RightAnchor" type="Marker2D" parent="ObstacleSpawner" unique_id=309987629]
+position = Vector2(92, 269)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1134716953]
+visible = false
+energy = 0.1
+
+[node name="CurrentScore" type="Label" parent="." unique_id=685484745 groups=["Player1"]]
+offset_left = 42.0
+offset_right = 60.0
+offset_bottom = 18.0
+scale = Vector2(0.535, 0.535)
+theme = ExtResource("6_bkxiq")
+text = "10"
+script = ExtResource("7_1ldb1")
+
+[node name="TextureRect" parent="." unique_id=204977200 groups=["Player1"] instance=ExtResource("8_jcf5h")]
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=925069740]
+visible = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaries" unique_id=1778488711]
+position = Vector2(46, 203)
+shape = SubResource("RectangleShape2D_c4pne")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaries" unique_id=319075122]
+position = Vector2(-10, 96.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_tfamw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundaries" unique_id=869389411]
+position = Vector2(102, 94)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_tfamw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries" unique_id=1771854644]
+position = Vector2(48, -10)
+shape = SubResource("RectangleShape2D_c4pne")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1248207614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1705900099]
+position = Vector2(46, 173.5)
+shape = SubResource("RectangleShape2D_dm5o4")
+debug_color = Color(0.8520114, 0.31765294, 0.5051081, 0.41960785)
+
+[node name="Label" type="Label" parent="." unique_id=1001917968]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 21.0
+offset_right = 254.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("6_bkxiq")
+text = "Ceci est votre 
+score actuelle"
+
+[node name="Label2" type="Label" parent="." unique_id=2133953101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 22.0
+offset_right = 121.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("6_bkxiq")
+text = "Votre barre de
+ vie(3 PV)"
+
+[node name="Label4" type="Label" parent="." unique_id=404371027]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 82.99999
+offset_right = 88.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("6_bkxiq")
+text = "Goutte"
+
+[node name="Label5" type="Label" parent="." unique_id=1981600879]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 83.0
+offset_right = 118.0
+offset_bottom = 122.00001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("6_bkxiq")
+text = "GLACE"
+
+[node name="Label3" type="Label" parent="." unique_id=215023357]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 82.99999
+offset_right = 61.0
+offset_bottom = 121.99999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("6_bkxiq")
+text = "Flocon"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1578912127]
+position = Vector2(13, 17.999996)
+rotation = 4.3052077
+scale = Vector2(0.38, 0.38)
+skew = 0.051924825
+texture = ExtResource("9_qjruy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=501937523]
+position = Vector2(53.000004, 15)
+rotation = -1.9994094
+scale = Vector2(0.47476542, 0.44324923)
+texture = ExtResource("9_qjruy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1390282005]
+position = Vector2(18, 75)
+texture = ExtResource("10_ol64d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1747520026]
+position = Vector2(18, 98)
+texture = ExtResource("11_bkxiq")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1175088738]
+position = Vector2(71, 99)
+texture = ExtResource("11_bkxiq")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1473956326]
+position = Vector2(72, 75)
+texture = ExtResource("12_1ldb1")
+
+[node name="TutoQuitter" type="Button" parent="." unique_id=1850384030]
+offset_left = 22.0
+offset_top = 122.0
+offset_right = 105.0
+offset_bottom = 148.0
+scale = Vector2(0.555, 0.555)
+theme = ExtResource("6_bkxiq")
+text = "retoure"
+script = ExtResource("13_bkxiq")
+
+[node name="Label6" type="Label" parent="." unique_id=2010260976]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 66.0
+offset_bottom = 127.00001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+theme = ExtResource("6_bkxiq")
+text = "A"
+
+[node name="Label7" type="Label" parent="." unique_id=934093822]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = 89.0
+offset_right = 120.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+theme = ExtResource("6_bkxiq")
+text = "E"
+
+[connection signal="pressed" from="TutoQuitter" to="TutoQuitter" method="_on_pressed"]

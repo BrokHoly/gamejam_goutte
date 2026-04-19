@@ -15,11 +15,13 @@ texture = ExtResource("2_vr2dm")
 flip_h = true
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1423714142]
+collision_mask = 7
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" unique_id=1976960263]
 polygon = PackedVector2Array(-1, 21, -42, 19, -52, -10, -32, -15, 0, 0)
 
 [node name="SpawnBox" type="Area2D" parent="." unique_id=469021438]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBox" unique_id=1249774553]
 position = Vector2(-24, 0)
