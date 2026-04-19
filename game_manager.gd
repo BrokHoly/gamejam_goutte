@@ -115,3 +115,8 @@ func load_highest_score() -> int:
 		return found
 		
 	return -1
+
+
+func reset_highest_score():
+	#TODO reset highest score
+	pass

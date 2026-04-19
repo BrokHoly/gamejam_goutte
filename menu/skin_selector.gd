@@ -6,7 +6,12 @@ var skin_list : Array[Resource] = []
 #Score , (index of skin, locked 0 or unlocked1)
 var skin_inventory : Dictionary[int,Vector2] = {
 	0:Vector2(0,0),
-	1:Vector2(2000,1)
+	1:Vector2(2000,1),
+	2:Vector2(5000,1),
+	3:Vector2(10000,1),
+	4:Vector2(20000,1),
+	5:Vector2(50000,1),
+	6:Vector2(100000,1)
 }
 
 var selected : int = 0
@@ -16,6 +21,11 @@ var selected : int = 0
 func _ready() -> void:
 	skin_list.append(load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png"))
 	skin_list.append(load("res://Assets/Sprites/MainCharacter/Goutte.png"))
+	skin_list.append(load("res://Assets/Sprites/MainCharacter/Skins/goutteexpression-expor2t.png"))
+	skin_list.append(load("res://Assets/Sprites/MainCharacter/Skins/goutteexpression-export3.png"))
+	skin_list.append(load("res://Assets/Sprites/MainCharacter/Skins/goutteexpression-export4.png"))
+	skin_list.append(load("res://Assets/Sprites/MainCharacter/Skins/goutteexpression-export5.png"))
+	skin_list.append(load("res://Assets/Sprites/MainCharacter/Skins/goutteexpression-export.png"))
 	GameManager.highest_score_changed.connect(new_highest_score)
 	new_highest_score()
 	
@@ -34,7 +44,7 @@ func _process(delta: float) -> void:
 	if(skin_inventory[selected].y == 0):
 		$Skins/TextureRect.visible = true
 		$Skins/Label.visible = true
-		$Skins/Label.text = "Locked\n" +  str(skin_inventory[selected].x)
+		$Skins/Label.text = "Locked\n" +  str(int(skin_inventory[selected].x))
 	else:
 		$Skins/TextureRect.visible = false
 		$Skins/Label.visible = false
