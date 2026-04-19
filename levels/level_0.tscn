@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="4_yi3jx"]
 [ext_resource type="Script" uid="uid://q08yasbnha2s" path="res://levels/update_score.gd" id="5_7d3si"]
 [ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="5_foxie"]
+[ext_resource type="Script" uid="uid://ld4ohxv7swnn" path="res://UI/score_boost_visual.gd" id="8_dm5o4"]
 [ext_resource type="AudioStream" uid="uid://c14irb4u5qiii" path="res://Assets/Audio/wind.mp3" id="9_tfamw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tfamw"]
@@ -86,11 +87,14 @@ theme = ExtResource("4_yi3jx")
 text = "10"
 script = ExtResource("5_7d3si")
 
-[node name="Score++" type="Label" parent="." unique_id=2010038325]
-offset_left = 57.999992
-offset_top = 5.9999995
-offset_right = 97.99999
-offset_bottom = 29.0
+[node name="Node2D" type="Node2D" parent="." unique_id=1287058817]
+position = Vector2(57.999992, 5.9999995)
+rotation = 0.41015238
+script = ExtResource("8_dm5o4")
+
+[node name="Score++" type="Label" parent="Node2D" unique_id=2010038325]
+offset_right = 40.0
+offset_bottom = 23.0
 rotation = 0.41015238
 scale = Vector2(0.185, 0.185)
 theme = ExtResource("4_yi3jx")

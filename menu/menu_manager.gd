@@ -13,11 +13,6 @@ func _ready() -> void:
 		$HighestScore.text = str(score_made)
 
 
-func _on_demarrer_pressed() -> void:
-	audioStream.play()
-	await get_tree().create_timer(0.3).timeout
-	GameManager.playerSkin = $SkinSelector/Skins/Sprite2D.texture
-	get_tree().change_scene_to_file("res://levels/level_0.tscn")
 
 
 func _on_quitter_pressed() -> void:
@@ -37,15 +32,20 @@ func _on_load_save_pressed() -> void:
 
 func _on_tuto_pressed() -> void:
 	audioStream.play()
-	await get_tree().create_timer(0.3).timeout
 	GameManager.playerSkin = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 	get_tree().change_scene_to_file("res://levels/tuto.tscn")
 
 
 func _on_mode_coop_new_pressed() -> void:
 	audioStream.play()
-	await get_tree().create_timer(0.3).timeout
 	GameManager.number_of_player = 2
 	GameManager.coop = true
 	GameManager.playerSkin = load("res://Assets/Sprites/MainCharacter/GoutteNoOutline.png")
 	get_tree().change_scene_to_file("res://menu/numberOfPlayerSelect.tscn")
+
+
+func _on_démarrer_pressed() -> void:
+	audioStream.play()
+	await get_tree().create_timer(0.3).timeout
+	GameManager.playerSkin = $SkinSelector/Skins/Sprite2D.texture
+	get_tree().change_scene_to_file("res://levels/level_0.tscn")

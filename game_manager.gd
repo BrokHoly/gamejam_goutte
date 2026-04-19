@@ -11,7 +11,7 @@ signal health_depleted()
 signal health_depletedP2()
 signal highest_score_changed()
 
-signal score_boost(amount : int)
+signal score_boost_visual(amount : int)
 
 
 

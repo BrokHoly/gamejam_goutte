@@ -4,14 +4,18 @@ extends Node2D
 var speed = 0.0
 var audio_web_success : AudioStreamPlayer2D
 var audio_leaf_success : AudioStreamPlayer2D
+var audio_web_failed : AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	audio_web_success = AudioStreamPlayer2D.new()
 	audio_leaf_success = AudioStreamPlayer2D.new()
-	audio_web_success.stream = load("res://Assets/Audio/web_succcess.mp3")
+	audio_web_failed  = AudioStreamPlayer2D.new()
+	audio_web_success.stream = load("res://Assets/Audio/web_drop.mp3")
 	audio_leaf_success.stream = load("res://Assets/Audio/leaf_success.mp3")
+	audio_web_failed.stream = load("res://Assets/Audio/web_succcess.mp3")
 	add_child(audio_web_success)
 	add_child(audio_leaf_success)
+	add_child(audio_web_failed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,27 +33,39 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.is_in_group("Player1"):
 			if body.is_ice() and is_in_group("breakable"):
-				GameManager.score += 100
+				GameManager.score += 200
+				GameManager.score_boost_visual.emit(200)
 				audio_leaf_success.play()
+				
 				#TODO make an animation or something
 				pass
 			elif body.is_liquid() and is_in_group("traversable"):
-				GameManager.score += 100
+				GameManager.score += 200
+				GameManager.score_boost_visual.emit(200)
 				audio_web_success.play()
 				#TODO make an animation or something
-				pass 
+				pass
+			elif not(body.is_liquid()) and is_in_group("traversable"):
+				GameManager.health_changed.emit(-1)
+				audio_web_failed.play()
 			else :
 				# Signal lose health point and maybe even score points ? 
 				GameManager.health_changed.emit(-1)
 		elif(body.is_in_group("Player2")):
 			if body.is_ice() and is_in_group("breakable"):
-				GameManager.scoreP2 += 100
+				GameManager.scoreP2 += 200
+				GameManager.score_boost_visual.emit(200)
+
 				#TODO make an animation or something
 				pass
 			elif body.is_liquid() and is_in_group("traversable"):
-				GameManager.scoreP2 += 100
+				GameManager.scoreP2 += 200
+				GameManager.score_boost_visual.emit(200)
 				#TODO make an animation or something
 				pass 
+			elif not(body.is_liquid()) and is_in_group("traversable"):
+				GameManager.health_changed.emit(-1)
+				audio_web_failed.play()
 			else :
 				# Signal lose health point and maybe even score points ? 
 				GameManager.health_changedP2.emit(-1)

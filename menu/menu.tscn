@@ -161,8 +161,8 @@ anchor_mode = 0
 stream = ExtResource("9_bc54p")
 
 [connection signal="pressed" from="Buttons/ModeCoopNew" to="." method="_on_mode_coop_new_pressed"]
-[connection signal="pressed" from="Buttons/Démarrer" to="." method="_on_mode_coop_new_pressed"]
-[connection signal="pressed" from="Buttons/Quitter" to="." method="_on_mode_coop_new_pressed"]
-[connection signal="pressed" from="Buttons/tuto" to="." method="_on_mode_coop_new_pressed"]
+[connection signal="pressed" from="Buttons/Démarrer" to="." method="_on_démarrer_pressed"]
+[connection signal="pressed" from="Buttons/Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="Buttons/tuto" to="." method="_on_tuto_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowLeft" to="SkinSelector" method="_on_arrow_left_pressed"]
 [connection signal="pressed" from="SkinSelector/ArrowRight" to="SkinSelector" method="_on_arrow_right_pressed"]
