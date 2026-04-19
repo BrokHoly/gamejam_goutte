@@ -57,6 +57,14 @@ func health_changedP2Yipiiii(amount :int)->void:
 	
 	
 
+func change_pitch(audio_player : AudioStreamPlayer2D)-> void:
+	audio_player.pitch_scale = randf_range(0.8,1.2)
+
+func change_pitch_and_play(audio_player : AudioStreamPlayer2D) -> void:
+	audio_player.pitch_scale = randf_range(0.8,1.2)
+	audio_player.play()
+
+
 func reset_values() ->void:
 	if(not coop):
 		health = 3

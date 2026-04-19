@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cpnxh56cd7t3o" path="res://levels/current_score_p_2.gd" id="9_wkek1"]
 [ext_resource type="Script" uid="uid://dimgrmqjs5u1g" path="res://Assets/UI/hp.gd" id="10_myyap"]
 [ext_resource type="Script" uid="uid://m4yy66k1wifr" path="res://player/health_p_2.gd" id="11_b003m"]
+[ext_resource type="AudioStream" uid="uid://c14irb4u5qiii" path="res://Assets/Audio/wind.mp3" id="15_paqo6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tfamw"]
 shader = ExtResource("4_myyap")
@@ -170,3 +171,8 @@ shape = SubResource("RectangleShape2D_c4pne")
 position = Vector2(46, 173.5)
 shape = SubResource("RectangleShape2D_dm5o4")
 debug_color = Color(0.8520114, 0.31765294, 0.5051081, 0.41960785)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=613049177]
+stream = ExtResource("15_paqo6")
+autoplay = true
+parameters/looping = true

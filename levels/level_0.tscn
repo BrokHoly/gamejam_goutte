@@ -4,10 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="1_eus5j"]
 [ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="3_iss0w"]
 [ext_resource type="Texture2D" uid="uid://bm6qc8fjjp7xt" path="res://Assets/FX/particle2Square.png" id="3_jum3j"]
-[ext_resource type="Shader" path="res://menu/menu.gdshader" id="4_c4pne"]
+[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="4_c4pne"]
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="4_yi3jx"]
 [ext_resource type="Script" uid="uid://q08yasbnha2s" path="res://levels/update_score.gd" id="5_7d3si"]
 [ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="5_foxie"]
+[ext_resource type="AudioStream" uid="uid://c14irb4u5qiii" path="res://Assets/Audio/wind.mp3" id="9_tfamw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tfamw"]
 shader = ExtResource("4_c4pne")
@@ -126,5 +127,8 @@ debug_color = Color(0.8520114, 0.31765294, 0.5051081, 0.41960785)
 
 [node name="AudioStreamPlayerUIMenu" type="AudioStreamPlayer" parent="." unique_id=712325449]
 
-[node name="AudioStreamPlayerPluie" type="AudioStreamPlayer" parent="." unique_id=801584092]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1085600017]
+stream = ExtResource("9_tfamw")
+volume_db = -10.798
 autoplay = true
+parameters/looping = true

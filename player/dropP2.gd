@@ -105,6 +105,7 @@ func _toggle_ice():
 	if state == STATES.ICE:
 		activate_liquid()
 	else:
+		GameManager.change_pitch_and_play($TransformIce)
 		state = STATES.ICE
 		sprite = ICE_SPRITE
 		ICE_SPRITE.show()
@@ -120,6 +121,7 @@ func _toggle_snow():
 	if state == STATES.SNOW:
 		activate_liquid()
 	else:
+		GameManager.change_pitch_and_play($TransformSnow)
 		state = STATES.SNOW
 		SNOW_SPRITE.show()
 		ICE_SPRITE.hide()
@@ -130,6 +132,7 @@ func _toggle_snow():
 		ICE_SPRITE.visible = false
 
 func activate_liquid():
+	GameManager.change_pitch_and_play($TranformLiquid)
 	state = STATES.LIQUID
 	sprite = LIQUID_SPRITE
 	LIQUID_SPRITE.show()

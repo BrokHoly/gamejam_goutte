@@ -117,7 +117,7 @@ func _toggle_ice():
 		activate_liquid()
 		
 	else:
-		$TransformIce.play()
+		GameManager.change_pitch_and_play($TransformIce)
 		baseColor = targetColor
 		targetColor = ICE_COLOR
 		transition_amout = 0.0
@@ -137,7 +137,7 @@ func _toggle_snow():
 		activate_liquid()
 		
 	else:
-		$TransformSnow.play()
+		GameManager.change_pitch_and_play($TransformSnow)
 		baseColor = targetColor
 		targetColor = SNOW_COLOR
 		transition_amout = 0.0
@@ -151,7 +151,7 @@ func _toggle_snow():
 		ICE_SPRITE.visible = false
 
 func activate_liquid():
-	$TranformLiquid.play()
+	GameManager.change_pitch_and_play($TranformLiquid)
 	baseColor = targetColor
 	targetColor = LIQUID_COLOR
 	transition_amout = 0.0
