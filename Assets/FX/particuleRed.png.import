@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2efevdtjntgj"
-path="res://.godot/imported/glacon2.png-adb267b8d91a8a4d2b3cdbe5634f8891.ctex"
+uid="uid://ulvp1kep4aoy"
+path="res://.godot/imported/particuleRed.png-c62699449ac3eb42f055ee8627822b74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/glacon2.png"
-dest_files=["res://.godot/imported/glacon2.png-adb267b8d91a8a4d2b3cdbe5634f8891.ctex"]
+source_file="res://Assets/FX/particuleRed.png"
+dest_files=["res://.godot/imported/particuleRed.png-c62699449ac3eb42f055ee8627822b74.ctex"]
 
 [params]
 

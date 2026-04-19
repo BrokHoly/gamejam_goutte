@@ -12,7 +12,7 @@ var SNOW_SPRITE: Sprite2D
 
 var LIQUID_SHAPE: CollisionShape2D
 var ICE_SHAPE: CollisionShape2D
-var SNOW_SHAPE: CollisionShape2D	
+var SNOW_SHAPE: CollisionShape2D
 
 const LIQUID_PARTICLES : Color = Color("4995f3")
 const ICE_PARTICLES : Color = Color("8d9bc7cd")
@@ -26,7 +26,6 @@ var sprite : Sprite2D
 
 
 func _ready() -> void:
-	LIQUID_SKIN = GameManager.playerSkin
 	
 	LIQUID_SHAPE = $LiquidCollision
 	LIQUID_SHAPE = $IceCollision
@@ -36,7 +35,6 @@ func _ready() -> void:
 	ICE_SPRITE = $IceSprite
 	SNOW_SPRITE = $SnowSprite
 	
-	LIQUID_SPRITE.texture = LIQUID_SKIN
 	
 	LIQUID_SPRITE.show()
 	ICE_SPRITE.hide()
@@ -78,8 +76,8 @@ func take_damage(amount : int):
 
 
 func _handle_movements():
-	var side_direction := Input.get_axis("move_left", "move_right")
-	var vert_direction := Input.get_axis("move_up","move_down")
+	var side_direction := Input.get_axis("move_leftP2", "move_rightP2")
+	var vert_direction := Input.get_axis("move_upP2","move_downP2")
 	
 	# Manage movements based on the drop state 
 	if side_direction:
@@ -97,9 +95,9 @@ func _handle_movements():
 
 func _handle_inputs():
 	# Handle jump.
-	if Input.is_action_just_pressed("toggle_ice"):
+	if Input.is_action_just_pressed("toggle_iceP2"):
 		_toggle_ice()
-	if Input.is_action_just_pressed("toggle_snow"):
+	if Input.is_action_just_pressed("toggle_snowP2"):
 		_toggle_snow()
 
 

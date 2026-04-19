@@ -32,4 +32,5 @@ func _on_load_save_pressed() -> void:
 
 
 func _on_mode_coop_pressed() -> void:
+	GameManager.number_of_player = 2
 	get_tree().change_scene_to_file("res://menu/numberOfPlayerSelect.tscn")

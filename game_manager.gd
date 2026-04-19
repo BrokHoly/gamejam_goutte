@@ -6,7 +6,9 @@ var number_of_player : int = 1
 
 
 signal health_changed(amount: int)
+signal health_changedP2(amount: int)
 signal health_depleted()
+signal health_depletedP2()
 signal highest_score_changed()
 
 
@@ -15,6 +17,7 @@ var highest_score : int = load_highest_score()
 
 
 @onready var health: int = 3
+@onready var healthP2: int = 3
 @onready var score : int = 0
 @onready var start_score: bool = false
 
@@ -27,16 +30,29 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	health_changed.connect(health_changedyipi)
+	health_changedP2.connect(health_changedP2Yipiiii)
 	health_depleted.connect(reset_values)
+	health_depletedP2.connect(reset_values)
+	
 
 	
 func health_changedyipi(amount :int)->void:
 	health += amount
 	if(health == 0):
 		health_depleted.emit()
+		
+func health_changedP2Yipiiii(amount :int)->void:
+	if(number_of_player>1):
+		healthP2 += amount
+		if(healthP2 == 0):
+			health_depleted.emit()
+
+	
+	
 
 func reset_values() ->void:
 	health = 3
+	healthP2 = 3
 	start_score = false
 	if(score > load_highest_score()):
 		save_highest_score(score)

@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="4_myyap"]
 [ext_resource type="PackedScene" uid="uid://oft3ky210837" path="res://player/drop.tscn" id="5_wkek1"]
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="6_b003m"]
+[ext_resource type="PackedScene" uid="uid://dwp0714qo2rn2" path="res://player/dropP2.tscn" id="6_pk6kn"]
 [ext_resource type="Script" uid="uid://q08yasbnha2s" path="res://levels/update_score.gd" id="7_75xia"]
 [ext_resource type="PackedScene" uid="uid://b0t1i1lik4g8r" path="res://Assets/UI/HP.tscn" id="8_paqo6"]
 
@@ -57,9 +58,12 @@ offset_right = 45.405
 offset_bottom = 220.0
 texture = SubResource("PlaceholderTexture2D_dm5o4")
 
-[node name="Drop" parent="." unique_id=1116228112 instance=ExtResource("5_wkek1")]
-position = Vector2(45, 76)
+[node name="DropP1" parent="." unique_id=1116228112 groups=["Player1"] instance=ExtResource("5_wkek1")]
+position = Vector2(23, 75)
 platform_wall_layers = 255
+
+[node name="DropP2" parent="." unique_id=522632408 instance=ExtResource("6_pk6kn")]
+position = Vector2(65, 75)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=135998944]
 anchor_mode = 0
@@ -76,12 +80,23 @@ position = Vector2(92, 269)
 visible = false
 energy = 0.1
 
-[node name="CurrentScore" type="Label" parent="." unique_id=685484745]
-offset_left = 42.0
-offset_right = 60.0
+[node name="CurrentScoreP1" type="Label" parent="." unique_id=685484745 groups=["Player1"]]
+offset_left = 66.0
+offset_right = 84.0
 offset_bottom = 18.0
 scale = Vector2(0.535, 0.535)
 theme = ExtResource("6_b003m")
+theme_override_colors/font_color = Color(0.9764706, 0, 0, 1)
+text = "10"
+script = ExtResource("7_75xia")
+
+[node name="CurrentScoreP2" type="Label" parent="." unique_id=2146702031 groups=["Player2"]]
+offset_left = 19.0
+offset_right = 37.0
+offset_bottom = 18.0
+scale = Vector2(0.535, 0.535)
+theme = ExtResource("6_b003m")
+theme_override_colors/font_color = Color(0.28627452, 0.58431375, 0.9529412, 1)
 text = "10"
 script = ExtResource("7_75xia")
 
