@@ -1,16 +1,13 @@
 extends Node2D
 
 
-
-
 var audioStream
+
 func _ready() -> void:
-	var score_made = GameManager.load_highest_score();
+	var score_made : int= GameManager.load_highest_score();
+	if(score_made <= 0 ): return
 	audioStream = $AudioStreamPlayer2D
-	if ( score_made == -1):
-		return
-	else:
-		$HighestScore.text = str(score_made)
+	$HighestScore.text = str(score_made)
 
 
 

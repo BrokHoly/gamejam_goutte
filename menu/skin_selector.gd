@@ -32,12 +32,13 @@ func _ready() -> void:
 	
 func new_highest_score() -> void:
 	var score = GameManager.highest_score
+	print("new highest score function  + " + str(score))
 	for i in skin_inventory:
-		if(i == 0): return #That to always keep unlocked the first skin
-		if(score > skin_inventory[i].x):
-			skin_inventory[i] = Vector2(skin_inventory[i].x , 1)
-		else:
-			skin_inventory[i] = Vector2(skin_inventory[i].x , 0)
+		if(not(i == 0)):  #That to always keep unlocked the first skin
+			if(score > skin_inventory[i].x):
+				skin_inventory[i] = Vector2(skin_inventory[i].x , 1)
+			else:
+				skin_inventory[i] = Vector2(skin_inventory[i].x , 0)
 
 
 

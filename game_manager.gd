@@ -89,8 +89,10 @@ func reset_values(player : P) ->void:
 		start_score = false
 		number_of_player = 1
 		coop = false
+		get_tree().change_scene_to_file("res://menu/end_menu_coop.tscn")
+		
 	
-	get_tree().change_scene_to_file("res://menu/end_menu_coop.tscn")
+	get_tree().change_scene_to_file("res://menu/menu.tscn")
 
 func save_highest_score(score : int) -> void:
 	var save_file: FileAccess = FileAccess.open("user://savegame.save", FileAccess.WRITE)
