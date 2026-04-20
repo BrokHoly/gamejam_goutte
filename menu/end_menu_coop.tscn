@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://defpxsslifcrs"]
+
+[ext_resource type="Script" uid="uid://vxt5jdbwrvqr" path="res://menu/menu_manager.gd" id="1_urp4x"]
+[ext_resource type="Texture2D" uid="uid://douqq14xebfhb" path="res://Assets/Sprites/Background/fond.png" id="2_p511s"]
+[ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="3_artvd"]
+[ext_resource type="Texture2D" uid="uid://d0o8rkvoiu0v0" path="res://Assets/UI/BoutonsMainMenu/demarrerButton-export1.png" id="6_blxkg"]
+[ext_resource type="Texture2D" uid="uid://bmv4av30fkuug" path="res://Assets/UI/BoutonsMainMenu/QuitterButton-export1.png" id="6_i2eeb"]
+[ext_resource type="Texture2D" uid="uid://t8twq1r1n2c1" path="res://Assets/UI/BoutonsMainMenu/QuitterButton-export2.png" id="7_2kjj1"]
+[ext_resource type="Texture2D" uid="uid://cqa7lcbddl5fm" path="res://Assets/UI/BoutonsMainMenu/demarrerButton-export2.png" id="7_6fsip"]
+[ext_resource type="Script" uid="uid://ck5id0nrt4mw0" path="res://menu/score_player.gd" id="9_2kjj1"]
+[ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="10_bqnd3"]
+[ext_resource type="AudioStream" uid="uid://cp6yhfy4uo38s" path="res://Assets/Audio/UI_base.mp3" id="15_r3oc1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bc54p"]
+shader = ExtResource("3_artvd")
+shader_parameter/blur_amount = 1.4730000699675
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6fswf"]
+
+[node name="Menu" type="Node2D" unique_id=134614102]
+script = ExtResource("1_urp4x")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1386440413]
+texture_filter = 1
+offset_right = 92.0
+offset_bottom = 256.0
+texture = ExtResource("2_p511s")
+
+[node name="Blur" type="TextureRect" parent="." unique_id=558716781]
+material = SubResource("ShaderMaterial_bc54p")
+offset_right = 92.0
+offset_bottom = 256.0
+texture = SubResource("PlaceholderTexture2D_6fswf")
+
+[node name="Buttons" type="Node2D" parent="." unique_id=240147485]
+position = Vector2(0, -45)
+
+[node name="Démarrer" type="TextureButton" parent="Buttons" unique_id=902107087]
+offset_left = 28.0
+offset_top = 178.0
+offset_right = 66.0
+offset_bottom = 190.0
+texture_normal = ExtResource("6_blxkg")
+texture_hover = ExtResource("7_6fsip")
+
+[node name="Quitter" type="TextureButton" parent="Buttons" unique_id=866491725]
+offset_left = 28.0
+offset_top = 192.0
+offset_right = 66.0
+offset_bottom = 204.0
+texture_normal = ExtResource("6_i2eeb")
+texture_hover = ExtResource("7_2kjj1")
+
+[node name="Final scores" type="Node2D" parent="." unique_id=2076429949]
+position = Vector2(6, 4.9999995)
+scale = Vector2(0.63, 0.63)
+script = ExtResource("9_2kjj1")
+
+[node name="HighestScore" type="Label" parent="Final scores" unique_id=73123633 groups=["Player1"]]
+texture_filter = 1
+offset_left = 6.349205
+offset_top = 55.555557
+offset_right = 61.349205
+offset_bottom = 79.55556
+scale = Vector2(0.63, 0.63)
+theme = ExtResource("10_bqnd3")
+theme_override_colors/font_color = Color(0.28627452, 0.58431375, 0.9529412, 1)
+text = "Player 1"
+
+[node name="HighestScore3" type="Label" parent="Final scores" unique_id=220829915 groups=["Player1"]]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.8095207
+offset_top = 68.77779
+offset_right = 41.80952
+offset_bottom = 86.77779
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.63, 0.63)
+theme = ExtResource("10_bqnd3")
+theme_override_colors/font_color = Color(0.28627452, 0.58431375, 0.9529412, 1)
+text = "1500"
+
+[node name="HighestScore2" type="Label" parent="Final scores" unique_id=336781797 groups=["Player2"]]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.60317
+offset_top = 57.142853
+offset_right = 131.60318
+offset_bottom = 96.14285
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.63, 0.63)
+theme = ExtResource("10_bqnd3")
+theme_override_colors/font_color = Color(0.9098039, 0.23137255, 0.23137255, 1)
+text = "Player 2
+"
+
+[node name="HighestScore4" type="Label" parent="Final scores" unique_id=833349731 groups=["Player2"]]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.60319
+offset_top = 69.84126
+offset_right = 110.60319
+offset_bottom = 87.84126
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.63, 0.63)
+theme = ExtResource("10_bqnd3")
+theme_override_colors/font_color = Color(0.9098039, 0.23137255, 0.23137255, 1)
+text = "1500"
+
+[node name="HighestScore5" type="Label" parent="Final scores" unique_id=2144525508]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.7619095
+offset_top = 109.52381
+offset_right = 51.76191
+offset_bottom = 127.52381
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.42, 1.42)
+theme = ExtResource("10_bqnd3")
+theme_override_colors/font_color = Color(0.28627452, 0.58431375, 0.9529412, 1)
+text = "Player "
+
+[node name="Title" type="Label" parent="." unique_id=1882164434]
+texture_filter = 1
+offset_left = 6.0
+offset_top = 4.9999995
+offset_right = 131.0
+offset_bottom = 29.0
+scale = Vector2(0.63, 0.63)
+theme = ExtResource("10_bqnd3")
+text = "La goutte de trop"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1267309387]
+anchor_mode = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1825216623]
+stream = ExtResource("15_r3oc1")
+
+[connection signal="pressed" from="Buttons/Démarrer" to="." method="_on_démarrer_coop_end_menu_pressed"]
+[connection signal="pressed" from="Buttons/Quitter" to="." method="_on_quitter_pressed"]

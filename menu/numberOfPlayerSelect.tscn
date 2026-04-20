@@ -5,7 +5,9 @@
 [ext_resource type="Shader" uid="uid://cx6fvkp7milq1" path="res://menu/menu.gdshader" id="2_c45eh"]
 [ext_resource type="Theme" uid="uid://3wq2jg2uqmn6" path="res://Assets/Theme/UITheme.tres" id="3_c45eh"]
 [ext_resource type="Texture2D" uid="uid://deekqwdkrkj2e" path="res://Assets/Sprites/MainCharacter/GoutteNoOutline.png" id="4_lbub1"]
+[ext_resource type="Texture2D" uid="uid://d0o8rkvoiu0v0" path="res://Assets/UI/BoutonsMainMenu/demarrerButton-export1.png" id="5_bu3p2"]
 [ext_resource type="Texture2D" uid="uid://cbdpdwh5oreu7" path="res://Assets/UI/player2r.png" id="5_mhc8g"]
+[ext_resource type="Texture2D" uid="uid://cqa7lcbddl5fm" path="res://Assets/UI/BoutonsMainMenu/demarrerButton-export2.png" id="6_j83wd"]
 [ext_resource type="Texture2D" uid="uid://dpe0pn0n1uqdi" path="res://Assets/UI/BoutonsNew/Qtouch-export1.png" id="6_ybbqk"]
 [ext_resource type="Texture2D" uid="uid://d2k6j7krj0vjj" path="res://Assets/UI/BoutonsNew/Qtouch-export2.png" id="7_kkpjd"]
 [ext_resource type="Texture2D" uid="uid://da85fx27lpi34" path="res://Assets/UI/BoutonsNew/Ztouch-export1.png" id="8_bil0d"]
@@ -44,14 +46,19 @@ offset_right = 92.0
 offset_bottom = 256.0
 texture = SubResource("PlaceholderTexture2D_lbub1")
 
-[node name="Demarrer" type="Button" parent="." unique_id=212591660]
-offset_left = 25.0
-offset_top = 147.00002
-offset_right = 99.0
-offset_bottom = 173.00002
-scale = Vector2(0.555, 0.555)
+[node name="Demarrer" type="TextureButton" parent="." unique_id=1872616671]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 141.0
+offset_right = 66.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("3_c45eh")
-text = "démarrer"
+texture_normal = ExtResource("5_bu3p2")
+texture_hover = ExtResource("6_j83wd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1268477982]
 anchor_mode = 0

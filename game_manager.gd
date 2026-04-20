@@ -2,13 +2,18 @@ extends Node
 
 var number_of_player : int = 1
 var coop : bool = false
+var playerThatDiedFirst : P = P.PLAYER1
+
+enum P {PLAYER1, PLAYER2}
+var player1_color : Color = Color("4995f3")#blue
+var player2_color : Color = Color("e83b3b")#red
 
 
 
 signal health_changed(amount: int)
 signal health_changedP2(amount: int)
-signal health_depleted()
-signal health_depletedP2()
+signal health_depleted(player : P)
+signal health_depletedP2(player : P)
 signal highest_score_changed()
 
 signal score_boost_visual(amount : int)
@@ -46,13 +51,13 @@ func _ready() -> void:
 func health_changedyipi(amount :int)->void:
 	health += amount
 	if(health == 0):
-		health_depleted.emit()
+		health_depleted.emit(P.PLAYER1)
 		
 func health_changedP2Yipiiii(amount :int)->void:
 	if(coop):
 		healthP2 += amount
 		if(healthP2 == 0):
-			health_depleted.emit()
+			health_depletedP2.emit(P.PLAYER2)
 
 	
 	
@@ -65,7 +70,7 @@ func change_pitch_and_play(audio_player : AudioStreamPlayer2D) -> void:
 	audio_player.play()
 
 
-func reset_values() ->void:
+func reset_values(player : P) ->void:
 	if(not coop):
 		health = 3
 		healthP2 = 3
@@ -76,17 +81,16 @@ func reset_values() ->void:
 			highest_score = score
 			highest_score_changed.emit()
 		
-		score = 0
+		
 	else:
+		playerThatDiedFirst = player
 		health = 3
 		healthP2 = 3
 		start_score = false
-		score = 0
-		scoreP2 = 0
 		number_of_player = 1
 		coop = false
 	
-	get_tree().change_scene_to_file("res://menu/menu.tscn")
+	get_tree().change_scene_to_file("res://menu/end_menu_coop.tscn")
 
 func save_highest_score(score : int) -> void:
 	var save_file: FileAccess = FileAccess.open("user://savegame.save", FileAccess.WRITE)

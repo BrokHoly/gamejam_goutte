@@ -1,3 +1,4 @@
+class_name SkinSelector
 extends Node2D
 
 
@@ -5,13 +6,13 @@ extends Node2D
 var skin_list : Array[Resource] = []
 #Score , (index of skin, locked 0 or unlocked1)
 var skin_inventory : Dictionary[int,Vector2] = {
-	0:Vector2(0,0),
-	1:Vector2(2000,1),
-	2:Vector2(5000,1),
-	3:Vector2(10000,1),
-	4:Vector2(20000,1),
-	5:Vector2(50000,1),
-	6:Vector2(100000,1)
+	0:Vector2(0,1),
+	1:Vector2(2000,0),
+	2:Vector2(5000,0),
+	3:Vector2(10000,0),
+	4:Vector2(20000,0),
+	5:Vector2(50000,0),
+	6:Vector2(100000,0)
 }
 
 var selected : int = 0
@@ -32,6 +33,7 @@ func _ready() -> void:
 func new_highest_score() -> void:
 	var score = GameManager.highest_score
 	for i in skin_inventory:
+		if(i == 0): return #That to always keep unlocked the first skin
 		if(score > skin_inventory[i].x):
 			skin_inventory[i] = Vector2(skin_inventory[i].x , 1)
 		else:

@@ -45,7 +45,15 @@ func _on_mode_coop_new_pressed() -> void:
 
 
 func _on_démarrer_pressed() -> void:
+	var skin_s : SkinSelector = $SkinSelector
 	audioStream.play()
-	await get_tree().create_timer(0.3).timeout
-	GameManager.playerSkin = $SkinSelector/Skins/Sprite2D.texture
-	get_tree().change_scene_to_file("res://levels/level_0.tscn")
+	if(skin_s.skin_inventory[skin_s.selected].y == 1):
+		GameManager.playerSkin = $SkinSelector/Skins/Sprite2D.texture
+		get_tree().change_scene_to_file("res://levels/level_0.tscn")
+	
+
+#TODO changer ca un jour bref oé
+func _on_démarrer_coop_end_menu_pressed() -> void:
+	#Just to be sure everything will be okay after
+	GameManager.reset_values(GameManager.P.PLAYER1)
+	get_tree().change_scene_to_file("res://menu/menu.tscn")
