@@ -121,15 +121,14 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.7619095
-offset_top = 109.52381
-offset_right = 51.76191
-offset_bottom = 127.52381
+offset_left = 25.396828
+offset_top = 114.28572
+offset_right = 72.39683
+offset_bottom = 132.28572
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.42, 1.42)
 theme = ExtResource("10_bqnd3")
-theme_override_colors/font_color = Color(0.28627452, 0.58431375, 0.9529412, 1)
 text = "Player "
 
 [node name="Title" type="Label" parent="." unique_id=1882164434]

@@ -4,9 +4,11 @@ extends Node2D
 var audioStream
 
 func _ready() -> void:
+	audioStream = $AudioStreamPlayer2D
+	if(GameManager.coop): return
 	var score_made : int= GameManager.load_highest_score();
 	if(score_made <= 0 ): return
-	audioStream = $AudioStreamPlayer2D
+	
 	$HighestScore.text = str(score_made)
 
 
@@ -52,5 +54,14 @@ func _on_démarrer_pressed() -> void:
 #TODO changer ca un jour bref oé
 func _on_démarrer_coop_end_menu_pressed() -> void:
 	#Just to be sure everything will be okay after
+	GameManager.playerThatDiedFirst = GameManager.P.PLAYER1
+	GameManager.health = 3
+	GameManager.healthP2 = 3
+	GameManager.start_score = false
+	GameManager.number_of_player = 1
+	GameManager.coop = false
+	GameManager.score = 0
+	GameManager.scoreP2 = 0
 	GameManager.reset_values(GameManager.P.PLAYER1)
-	get_tree().change_scene_to_file("res://menu/menu.tscn")
+	
+	
